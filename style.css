@@ -11,7 +11,7 @@ textarea,
 button {
   padding-block: 0;
   margin: 0;
-  -webkit-appearance: none;
+  appearance: none;
   outline: none;
   border: none;
   background: transparent;

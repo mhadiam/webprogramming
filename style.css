@@ -7,7 +7,9 @@
 
 input,
 select,
-textarea {
+textarea,
+button {
+  padding-block: 0;
   margin: 0;
   -webkit-appearance: none;
   outline: none;
@@ -16,18 +18,19 @@ textarea {
   font-family: 'Vazirmatn';
   font-size: 18px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 2rem;
 }
 
 body {
   --front-color: #323136;
+  --back-color: #e8e2de;
   direction: rtl;
   margin: 0;
   scrollbar-width: none;
   font-family: 'Vazirmatn';
   font-size: 18px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 2rem;
 }
 
 body::-webkit-scrollbar {
@@ -39,6 +42,7 @@ header {
   block-size: calc(100vmax * 2 / 5);
   display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 header>img {
@@ -53,7 +57,7 @@ header>nav {
   justify-items: flex-start;
   align-items: center;
   gap: 2rem;
-  padding-inline: 32px;
+  padding-inline: 2rem;
 }
 
 header>nav>a:first-of-type {
@@ -77,8 +81,8 @@ header>form {
   block-size: calc(100vmax * 2 / 5 / 6);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding-inline: 32px;
+  gap: 2rem;
+  padding-inline: 2rem;
 }
 
 header>form>main {
@@ -91,6 +95,7 @@ header>form>main>div {
   block-size: 50px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 header>form>main>div:not(:last-of-type) {
@@ -98,7 +103,7 @@ header>form>main>div:not(:last-of-type) {
 }
 
 header>form>main>div:first-of-type>input {
-  inline-size: 50%;
+  inline-size: 24ch;
 }
 
 header>form>main>div:first-of-type>input:first-of-type {
@@ -155,4 +160,28 @@ header>form>main>div:first-of-type>button::before {
 
 header>form>main>div:first-of-type>button::after {
   bottom: -14px;
+}
+
+header>form>button {
+  block-size: 2rem;
+  background-color: var(--front-color);
+  color: var(--back-color);
+  border-radius: 5px;
+  padding-block: 0;
+  padding-inline-start: calc(18px + 1.5rem);
+  padding-inline-end: 1rem;
+  cursor: pointer;
+  transition: translate 150ms ease;
+}
+
+header>form>button:hover {
+  translate: 0px 1px;
+}
+
+header>form>button::before {
+  font-family: 'uicons-regular-rounded';
+  content: "\f420";
+  vertical-align: middle;
+  position: absolute;
+  right: 1rem;
 }

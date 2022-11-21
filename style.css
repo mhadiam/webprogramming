@@ -107,24 +107,28 @@ header>form>main>div:first-of-type>input {
 }
 
 header>form>main>div:first-of-type>input:first-of-type {
-  padding-inline-start: 30px;
+  padding-inline-start: 2rem;
+  padding-inline-end: 1rem;
 }
 
 header>form>main>div:first-of-type>input:last-of-type {
-  padding-inline-start: 42px;
+  padding-inline-start: calc(2rem + 12px);
+  padding-inline-end: 1rem;
 }
 
 header>form>main>div:first-of-type>label {
+  inline-size: 2rem;
   position: absolute;
   opacity: 0.5;
+  text-align: center;
 }
 
 header>form>main>div:first-of-type>label[for="from"] {
-  right: 8px;
+  right: 0;
 }
 
 header>form>main>div:first-of-type>label[for="to"] {
-  right: calc(50% + 20px);
+  right: calc(50% + 12px)
 }
 
 header>form>main>div:first-of-type>button {
@@ -143,23 +147,30 @@ header>form>main>div:first-of-type>button {
   cursor: pointer;
 }
 
-header>form>main>div:first-of-type>button::before,
+header>form>main>div:first-of-type>button::before {
+  font-family: 'uicons-regular-rounded';
+  content: "\f2e6";
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
 header>form>main>div:first-of-type>button::after {
   content: '';
+  inline-size: 1px;
+  block-size: 13px;
   display: inline-block;
   position: absolute;
+  bottom: -14px;
   left: calc(50% - 0.5px);
-  height: 13px;
-  width: 1px;
   background-color: var(--front-color);
 }
 
-header>form>main>div:first-of-type>button::before {
-  top: -14px;
-}
-
-header>form>main>div:first-of-type>button::after {
-  bottom: -14px;
+header>form>main>div:nth-of-type(2)>label {
+  inline-size: 12ch;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 header>form>button {

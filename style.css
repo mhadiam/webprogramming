@@ -4,6 +4,12 @@
   color: var(--front-color);
 }
 
+html {
+  --back-color: #e8e2de;
+
+  background-color: var(--back-color);
+}
+
 input,
 select,
 textarea,
@@ -34,7 +40,7 @@ li {
 body {
   --front-color: #48474a;
   --front-color-hover: #1a191a;
-  --back-color: #e8e2de;
+
   direction: rtl;
   margin: 0;
   scrollbar-width: none;

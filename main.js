@@ -1,7 +1,6 @@
 const from_input = document.querySelector("#from");
 const to_input = document.querySelector("#to");
 const swap_button = document.querySelector("#swap");
-
 swap_button.addEventListener("click", () => {
   let y_offset = 0;
   let down = true;
@@ -25,25 +24,18 @@ swap_button.addEventListener("click", () => {
   window.requestAnimationFrame(step);
 });
 
-const trip_label = document.querySelector('label[for="trip"]');
 const trip_input = document.querySelector("#trip");
-
-trip_label.addEventListener("click", () => {
+trip_input.addEventListener("click", () => {
   let y_offset = 0;
   let down = true;
 
   const step = (timestamp) => {
-    trip_label.style = `translate: 0px ${y_offset}px`;
+    trip_input.style = `translate: 0px ${y_offset}px`;
 
     if (y_offset >= 50) {
       down = false;
-      if (trip_input.value === "one way") {
-        trip_input.setAttribute("value", "return");
-        trip_label.textContent = "رفت و برگشت";
-      } else {
-        trip_input.setAttribute("value", "one way");
-        trip_label.textContent = "یک طرفه";
-      }
+      if (trip_input.value === "یک طرفه") trip_input.value = "رفت و برگشت";
+      else trip_input.value = "یک طرفه";
     }
 
     down ? (y_offset += 5) : (y_offset -= 5);

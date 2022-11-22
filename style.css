@@ -243,9 +243,10 @@ header>form>main>div:nth-of-type(3)>div {
   top: 50px;
   left: 0;
   right: calc(-44ch - 6rem - 24px - 2px);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0 1px 1px 1px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 header>form>main>div:nth-of-type(3)>div>ul {
@@ -272,13 +273,41 @@ header>form>main>div:nth-of-type(3)>div>ul>li:hover {
 }
 
 header>form>main>div:nth-of-type(3)>div>div {
+  display: flex;
+  gap: 1px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div {
+  flex-basis: 50%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-header>form>main>div:nth-of-type(3)>div>div>span {
-  text-align: center;
+header>form>main>div:nth-of-type(3)>div>div>div:first-of-type {
+  border-inline-end: 1px solid var(--front-color);
+  padding-inline-end: 1px;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span {
+  block-size: 50px;
   line-height: 50px;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span.past {
+  opacity: 0.5;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span.include {
+  background-color: rgba(72, 71, 74, 0.25);
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span:nth-of-type(n + 8):not(.past):not(:empty):hover {
+  cursor: pointer;
+  background-color: var(--front-color);
+  color: white;
 }
 
 header>form>button {

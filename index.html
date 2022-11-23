@@ -48,7 +48,8 @@
         <a href="/profile"> ورود | ثبت نام </a>
       </nav>
 
-      <form spellcheck="false">
+      <form spellcheck="false"
+            action="flights.html">
         <main>
           <div>
             <label for="from">از</label>
@@ -75,13 +76,16 @@
                    style="translate: 0px 0px" />
           </div>
           <div>
-            <label for="depart">زمان رفت</label>
+            <label for="depart"
+                   id="depart-label">رفت</label>
             <input type="text"
                    name="depart"
                    id="depart"
                    readonly />
-            <div class="hide"
-                 style="clip-path: inset(0px 0px 600px 0px)">
+            <input type="hidden"
+                   name="return"
+                   id="return">
+            <div>
               <ul>
                 <li style="font-size: 18px; opacity: 1;"></li>
                 <li style="font-size: 18px; opacity: 1;"></li>

@@ -250,9 +250,14 @@ header>form>main>div:nth-of-type(3)>div {
   left: 0;
   right: calc(-44ch - 6rem - 24px - 2px);
   padding: 0 1px 1px 1px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
+  transition: clip-path 500ms ease-out;
+}
+
+header>form>main>div:nth-of-type(3)>div.hide {
+  display: none;
 }
 
 header>form>main>div:nth-of-type(3)>div>ul {
@@ -283,17 +288,27 @@ header>form>main>div:nth-of-type(3)>div>div {
   gap: 1px;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
+}
+
+header>form>main>div:nth-of-type(3)>div>div::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 50%;
+  inline-size: 1px;
+  background-color: var(--front-color);
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div:first-of-type {
+  padding-inline-end: 1px;
 }
 
 header>form>main>div:nth-of-type(3)>div>div>div {
   flex-basis: 50%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-}
-
-header>form>main>div:nth-of-type(3)>div>div>div:first-of-type {
-  border-inline-end: 1px solid var(--front-color);
-  padding-inline-end: 1px;
 }
 
 header>form>main>div:nth-of-type(3)>div>div>div>span {
@@ -310,6 +325,11 @@ header>form>main>div:nth-of-type(3)>div>div>div>span.include {
   background-color: rgba(72, 71, 74, 0.25);
 }
 
+header>form>main>div:nth-of-type(3)>div>div>div>span.selected {
+  background-color: var(--front-color);
+  color: white;
+}
+
 header>form>main>div:nth-of-type(3)>div>div>div>span:nth-of-type(n + 8):not(.past):not(:empty):hover {
   cursor: pointer;
   background-color: var(--front-color);
@@ -320,7 +340,6 @@ header>form>button {
   block-size: 2rem;
   background-color: var(--front-color-hover);
   color: var(--back-color);
-  border-radius: 5px;
   padding-block: 0;
   padding-inline-start: calc(18px + 1.5rem);
   padding-inline-end: 1rem;

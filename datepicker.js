@@ -131,7 +131,6 @@ all_days.forEach((span) => {
       !span.classList.contains("past") &&
       parseInt(span.getAttribute("data-date")) > start
     ) {
-      span.setAttribute("class", "selected");
       end = parseInt(span.getAttribute("data-date"));
       depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
         MONTHS[

@@ -136,22 +136,22 @@ header>form>main>div:first-of-type {
 }
 
 header>form>main>div:first-of-type>input {
-  inline-size: calc(16ch + 2rem + 12px);
+  inline-size: calc(16ch + 2.2rem + 12px);
   color: var(--front-color-hover);
 }
 
 header>form>main>div:first-of-type>input:first-of-type {
-  padding-inline-start: 1rem;
+  padding-inline-start: 1.2rem;
   padding-inline-end: 1rem;
 }
 
 header>form>main>div:first-of-type>input:last-of-type {
-  padding-inline-start: calc(1rem + 12px);
+  padding-inline-start: calc(1.2rem + 12px);
   padding-inline-end: 1rem;
 }
 
 header>form>main>div:first-of-type>label {
-  inline-size: 1rem;
+  inline-size: 1.2rem;
   font-size: 14px;
   position: absolute;
   opacity: 0.5;
@@ -263,7 +263,7 @@ header>form>main>div:nth-of-type(3)>div {
   position: absolute;
   top: 50px;
   left: 0;
-  right: calc(-44ch - 6rem - 24px - 2px);
+  right: calc(-44ch - 6.4rem - 24px - 2px);
   padding: 0 1px 1px 1px;
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);

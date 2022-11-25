@@ -115,6 +115,7 @@ trip_input.addEventListener("click", () => {
             )
           ]
         } ${new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[0].slice(-2)}`;
+        return_input.value = `${return_input.value} ${parseInt(return_input.value) + 86400000 * 7}`;
       } else {
         trip_input.value = "یک طرفه";
         depart_label.textContent = "رفت";

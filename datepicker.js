@@ -123,8 +123,18 @@ let all_days = [...first_calendar_days, ...second_calendar_days];
 all_days.forEach((span) => {
   span.addEventListener("click", () => {
     if (start === null && span.textContent.length && !span.classList.contains("past")) {
-      span.setAttribute("class", "selected");
       start = parseInt(span.getAttribute("data-date"));
+      if (trip_input.value === "یک طرفه") {
+        depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
+          MONTHS[
+            ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
+              new Date(start).toLocaleDateString("fa-IR").split("/")[1]
+            )
+          ]
+        } ${new Date(start).toLocaleDateString("fa-IR").split("/")[0]}`;
+        return_input.value = start;
+        calendar.style = "clip-path: inset(0px 0px 600px 0px)";
+      } else span.setAttribute("class", "selected");
     } else if (
       end === null &&
       span.textContent.length &&

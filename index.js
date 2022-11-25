@@ -100,9 +100,34 @@ trip_input.addEventListener("click", () => {
       if (trip_input.value === "یک طرفه") {
         trip_input.value = "رفت و برگشت";
         depart_label.textContent = "رفت و برگشت";
+        depart_input.value = `${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[2]} ${
+          MONTHS[
+            ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
+              new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[1]
+            )
+          ]
+        } ${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[0].slice(-2)} - ${
+          new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[2]
+        } ${
+          MONTHS[
+            ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
+              new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[1]
+            )
+          ]
+        } ${new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[0].slice(-2)}`;
       } else {
         trip_input.value = "یک طرفه";
         depart_label.textContent = "رفت";
+        depart_input.value = `${
+          new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[2]
+        } ${
+          MONTHS[
+            ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
+              new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[1]
+            )
+          ]
+        } ${new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[0]}`;
+        return_input.value = return_input.value.split(" ")[0];
       }
     }
 
@@ -120,7 +145,9 @@ depart_input.value = `${new Date().toLocaleDateString("fa-IR").split("/")[2]} ${
       new Date().toLocaleDateString("fa-IR").split("/")[1]
     )
   ]
-} ${new Date().toLocaleDateString("fa-IR").split("/")[0].slice(-2)}`;
+} ${new Date().toLocaleDateString("fa-IR").split("/")[0]}`;
+
+return_input.value = new Date().getTime();
 
 define_today(new Date());
 for (let i = 0; i < 12; i++) {

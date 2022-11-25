@@ -127,8 +127,12 @@ header>form>main>div {
   position: relative;
 }
 
-header>form>main>div:not(:last-of-type) {
+header>form>main>div {
   border-inline-end: 1px solid var(--front-color);
+}
+
+header>form>main>div:first-of-type {
+  border-inline-start: 1px solid var(--front-color);
 }
 
 header>form>main>div:first-of-type>input {

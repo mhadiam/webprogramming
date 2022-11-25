@@ -148,15 +148,13 @@ all_days.forEach((span) => {
             new Date(start).toLocaleDateString("fa-IR").split("/")[1]
           )
         ]
-      } ${new Date(start).toLocaleDateString("fa-IR").split("/")[0].slice(-2)} - ${
-        new Date(end).toLocaleDateString("fa-IR").split("/")[2]
-      } ${
+      } - ${new Date(end).toLocaleDateString("fa-IR").split("/")[2]} ${
         MONTHS[
           ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
             new Date(end).toLocaleDateString("fa-IR").split("/")[1]
           )
         ]
-      } ${new Date(end).toLocaleDateString("fa-IR").split("/")[0].slice(-2)}`;
+      }`;
       return_input.value = `${start} ${end}`;
       calendar.style = "clip-path: inset(0px 0px 600px 0px)";
     }

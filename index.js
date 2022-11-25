@@ -99,26 +99,28 @@ trip_input.addEventListener("click", () => {
       down = false;
       if (trip_input.value === "یک طرفه") {
         trip_input.value = "رفت و برگشت";
-        depart_label.textContent = "رفت و برگشت";
+        depart_input.className = "return";
+        depart_label.className = "return";
+        setTimeout(() => (depart_label.textContent = "رفت و برگشت"), 150);
         depart_input.value = `${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
               new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
-        } ${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[0].slice(-2)} - ${
-          new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[2]
-        } ${
+        } - ${new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
               new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
-        } ${new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[0].slice(-2)}`;
+        }`;
         return_input.value = `${return_input.value} ${parseInt(return_input.value) + 86400000 * 7}`;
       } else {
         trip_input.value = "یک طرفه";
         depart_label.textContent = "رفت";
+        depart_input.removeAttribute("class");
+        depart_label.removeAttribute("class");
         depart_input.value = `${
           new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[2]
         } ${

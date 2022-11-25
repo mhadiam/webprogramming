@@ -223,26 +223,36 @@ header>form>main>div:nth-of-type(3) {
 }
 
 header>form>main>div:nth-of-type(3)>input {
-  inline-size: calc(20ch + 3rem);
-  padding-inline-start: 3rem;
+  inline-size: calc(20ch + 2rem);
+  padding-inline-start: 2rem;
   text-align: center;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
+  transition: inline-size 150ms ease;
 }
 
 header>form>main>div:nth-of-type(3)>input:hover {
   color: var(--front-color-hover);
 }
 
+header>form>main>div:nth-of-type(3)>input.return {
+  inline-size: calc(20ch + 5rem);
+  padding-inline-start: 5rem;
+}
+
 header>form>main>div:nth-of-type(3)>label {
-  inline-size: 3rem;
+  inline-size: 2rem;
   font-size: 14px;
-  line-height: 25px;
   position: absolute;
   right: 0;
   opacity: 0.5;
   text-align: center;
+  transition: inline-size 150ms ease;
+}
+
+header>form>main>div:nth-of-type(3)>label.return {
+  inline-size: 5rem;
 }
 
 header>form>main>div:nth-of-type(3)>div {

@@ -89,7 +89,7 @@ depart_input.addEventListener("click", (e) => {
     calendar_months[0].style = calendar_months[1].style = "font-size: 18px; opacity: 1;";
     if (passengers.getAttribute("style")) {
       passengers.removeAttribute("style");
-      setTimeout(() => (calendar.style = "clip-path: inset(0px 0px 0px 0px)"), 250);
+      setTimeout(() => (calendar.style = "clip-path: inset(0px 0px 0px 0px)"), 150);
     } else {
       calendar.style = "clip-path: inset(0px 0px 0px 0px)";
     }

@@ -361,7 +361,7 @@ header>form>main>div:nth-of-type(4)>div {
   -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
   clip-path: inset(0px 0px 200px 0px);
-  transition: clip-path 250ms ease-out;
+  transition: clip-path 150ms ease-out;
 }
 
 header>form>main>div:nth-of-type(4)>div>* {

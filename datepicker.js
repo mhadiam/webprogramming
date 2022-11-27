@@ -76,7 +76,7 @@ const print_second_calendar = () => {
   }
 };
 
-depart_input.addEventListener("click", (e) => {
+date_output.addEventListener("click", (e) => {
   e.stopPropagation();
   if (calendar.getAttribute("style")) calendar.removeAttribute("style");
   else {
@@ -130,14 +130,14 @@ all_days.forEach((span) => {
     if (start === null && span.textContent.length && !span.classList.contains("past")) {
       start = parseInt(span.dataset.date);
       if (trip_input.value === "یک طرفه") {
-        depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
+        date_output.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
               new Date(start).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
         } ${new Date(start).toLocaleDateString("fa-IR").split("/")[0]}`;
-        return_input.value = start;
+        date_input.value = start;
         calendar.style = "clip-path: inset(0px 0px 600px 0px)";
       } else span.setAttribute("class", "selected");
     } else if (
@@ -147,7 +147,7 @@ all_days.forEach((span) => {
       parseInt(span.dataset.date) > start
     ) {
       end = parseInt(span.dataset.date);
-      depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
+      date_output.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
         MONTHS[
           ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
             new Date(start).toLocaleDateString("fa-IR").split("/")[1]
@@ -160,7 +160,7 @@ all_days.forEach((span) => {
           )
         ]
       }`;
-      return_input.value = `${start} ${end}`;
+      date_input.value = `${start} ${end}`;
       calendar.style = "clip-path: inset(0px 0px 600px 0px)";
     }
   });

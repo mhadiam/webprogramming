@@ -200,7 +200,7 @@ header>form>main>div:first-of-type>button::after {
   background-color: var(--front-color);
 }
 
-header>form>main>div:nth-of-type(2)>input {
+header>form>main>div:nth-of-type(2)>output {
   inline-size: calc(12ch + 2rem);
   padding-inline-start: 2rem;
   text-align: center;
@@ -209,7 +209,7 @@ header>form>main>div:nth-of-type(2)>input {
   -webkit-user-select: none;
 }
 
-header>form>main>div:nth-of-type(2)>input:hover {
+header>form>main>div:nth-of-type(2)>output:hover {
   color: var(--front-color-hover);
 }
 
@@ -226,7 +226,7 @@ header>form>main>div:nth-of-type(3) {
   overflow: visible;
 }
 
-header>form>main>div:nth-of-type(3)>input {
+header>form>main>div:nth-of-type(3)>output {
   inline-size: calc(20ch + 2rem);
   padding-inline-start: 2rem;
   text-align: center;
@@ -235,7 +235,7 @@ header>form>main>div:nth-of-type(3)>input {
   -webkit-user-select: none;
 }
 
-header>form>main>div:nth-of-type(3)>input:hover {
+header>form>main>div:nth-of-type(3)>output:hover {
   color: var(--front-color-hover);
 }
 
@@ -341,7 +341,7 @@ header>form>main>div:nth-of-type(4) {
   overflow: visible;
 }
 
-header>form>main>div:nth-of-type(4)>input {
+header>form>main>div:nth-of-type(4)>output {
   inline-size: calc(10ch);
   text-align: center;
   cursor: pointer;
@@ -349,7 +349,7 @@ header>form>main>div:nth-of-type(4)>input {
   -webkit-user-select: none;
 }
 
-header>form>main>div:nth-of-type(4)>input:hover {
+header>form>main>div:nth-of-type(4)>output:hover {
   color: var(--front-color-hover);
 }
 

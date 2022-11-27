@@ -55,36 +55,33 @@
             <label for="from">از</label>
             <input type="text"
                    name="from"
-                   id="from"
+                   id="from-input"
                    autofocus
                    style="translate: 0px 0px" />
             <label for="to">به</label>
             <input type="text"
                    name="to"
-                   id="to"
+                   id="to-input"
                    style="translate: 0px 0px" />
             <button type="button"
                     id="swap"></button>
           </div>
           <div>
             <label for="trip">سفر</label>
-            <input type="text"
+            <output id="trip-output"
+                    style="translate: 0px 0px">یک طرفه</output>
+            <input type="hidden"
                    name="trip"
-                   id="trip"
-                   readonly
-                   value="یک طرفه"
-                   style="translate: 0px 0px" />
+                   id="trip-input"
+                   value="oneway" />
           </div>
           <div>
             <label for="depart"
                    id="depart-label">زمان</label>
-            <input type="text"
-                   name="depart"
-                   id="depart"
-                   readonly />
+            <output id="date-output"></output>
             <input type="hidden"
-                   name="return"
-                   id="return">
+                   name="date"
+                   id="date">
             <div>
               <ul>
                 <li style="font-size: 18px; opacity: 1;"></li>
@@ -207,11 +204,7 @@
             </div>
           </div>
           <div>
-            <input type="text"
-                   name="passengers"
-                   id="passengers"
-                   value="۱ مسافر"
-                   readonly>
+            <output id="passengers-output">۱ مسافر</output>
             <div>
               <label for="adults">بزرگسال (۱۲+ سال)</label>
               <span>

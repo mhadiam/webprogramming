@@ -1,10 +1,11 @@
-const from_input = document.querySelector("#from");
-const to_input = document.querySelector("#to");
+const from_input = document.querySelector("#from-input");
+const to_input = document.querySelector("#to-input");
 const swap_button = document.querySelector("#swap");
-const trip_input = document.querySelector("#trip");
+const trip_output = document.querySelector("#trip-output");
+const trip_input = document.querySelector("#trip-input");
 const depart_label = document.querySelector("#depart-label");
-const depart_input = document.querySelector("#depart");
-const return_input = document.querySelector("#return");
+const date_output = document.querySelector("#date-output");
+const date_input = document.querySelector("#date");
 const calendar = document.querySelector("header>form>main>div:nth-of-type(3)>div");
 const calendar_months = document.querySelectorAll("header>form>main>div:nth-of-type(3)>div>ul>li");
 const first_calendar = document.querySelector("header>form>main>div:nth-of-type(3)>div>div>div:nth-of-type(1)");
@@ -15,7 +16,7 @@ const second_calendar = document.querySelector("header>form>main>div:nth-of-type
 const second_calendar_days = document.querySelectorAll(
   "header>form>main>div:nth-of-type(3)>div>div>div:nth-of-type(2)>span:nth-of-type(n + 8)"
 );
-const passengers_input = document.querySelector("#passengers");
+const passengers_output = document.querySelector("#passengers-output");
 const passengers = document.querySelector("header>form>main>div:nth-of-type(4)>div");
 const adults = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(1)");
 const child = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(2)");
@@ -94,43 +95,43 @@ swap_button.addEventListener("click", () => {
   window.requestAnimationFrame(step);
 });
 
-trip_input.addEventListener("click", () => {
+trip_output.addEventListener("click", () => {
   let y_offset = 0;
   let down = true;
 
   const step = (timestamp) => {
-    trip_input.style = `translate: 0px ${y_offset}px`;
+    trip_output.style = `translate: 0px ${y_offset}px`;
 
     if (y_offset >= 50) {
       down = false;
-      if (trip_input.value === "یک طرفه") {
-        trip_input.value = "رفت و برگشت";
-        depart_input.value = `${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[2]} ${
+      if (trip_output.value === "یک طرفه") {
+        trip_output.value = "رفت و برگشت";
+        trip_input.value = "return";
+        date_output.value = `${new Date(parseInt(date_input.value)).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
-              new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[1]
+              new Date(parseInt(date_input.value)).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
-        } - ${new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[2]} ${
+        } - ${new Date(parseInt(date_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
-              new Date(parseInt(return_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[1]
+              new Date(parseInt(date_input.value) + 86400000 * 7).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
         }`;
-        return_input.value = `${return_input.value} ${parseInt(return_input.value) + 86400000 * 7}`;
+        date_input.value = `${date_input.value} ${parseInt(date_input.value) + 86400000 * 7}`;
       } else {
-        trip_input.value = "یک طرفه";
-        depart_input.value = `${
-          new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[2]
-        } ${
+        trip_output.value = "یک طرفه";
+        trip_input.value = "oneway";
+        date_output.value = `${new Date(parseInt(date_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
-              new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[1]
+              new Date(parseInt(date_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[1]
             )
           ]
-        } ${new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[0]}`;
-        return_input.value = return_input.value.split(" ")[0];
+        } ${new Date(parseInt(date_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[0]}`;
+        date_input.value = date_input.value.split(" ")[0];
       }
     }
 
@@ -142,7 +143,7 @@ trip_input.addEventListener("click", () => {
   window.requestAnimationFrame(step);
 });
 
-depart_input.value = `${new Date().toLocaleDateString("fa-IR").split("/")[2]} ${
+date_output.value = `${new Date().toLocaleDateString("fa-IR").split("/")[2]} ${
   MONTHS[
     ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
       new Date().toLocaleDateString("fa-IR").split("/")[1]
@@ -150,14 +151,14 @@ depart_input.value = `${new Date().toLocaleDateString("fa-IR").split("/")[2]} ${
   ]
 } ${new Date().toLocaleDateString("fa-IR").split("/")[0]}`;
 
-return_input.value = new Date().getTime();
+date_input.value = new Date().getTime();
 
 define_today(new Date());
 for (let i = 0; i < 12; i++) {
   calendar_months[i].textContent = MONTHS[(TODAY.month + i) % 12];
 }
 
-passengers_input.addEventListener("click", (e) => {
+passengers_output.addEventListener("click", (e) => {
   e.stopPropagation();
   if (passengers.getAttribute("style")) passengers.removeAttribute("style");
   else if (calendar.getAttribute("style")) {
@@ -186,7 +187,7 @@ adults.querySelectorAll("button").forEach((button, index) => {
           "fa-IR"
         );
         adults.querySelector("input").dataset.value = parseInt(adults.querySelector("input").dataset.value) + 1;
-        passengers_input.value = `${(
+        passengers_output.value = `${(
           parseInt(adults.querySelector("input").dataset.value) +
           parseInt(child.querySelector("input").dataset.value) +
           parseInt(infant.querySelector("input").dataset.value)
@@ -195,7 +196,7 @@ adults.querySelectorAll("button").forEach((button, index) => {
     } else if (parseInt(adults.querySelector("input").dataset.value) > 1) {
       adults.querySelector("input").value = (parseInt(adults.querySelector("input").dataset.value) - 1).toLocaleString("fa-IR");
       adults.querySelector("input").dataset.value = parseInt(adults.querySelector("input").dataset.value) - 1;
-      passengers_input.value = `${(
+      passengers_output.value = `${(
         parseInt(adults.querySelector("input").dataset.value) +
         parseInt(child.querySelector("input").dataset.value) +
         parseInt(infant.querySelector("input").dataset.value)
@@ -208,7 +209,7 @@ adults.querySelector("input").addEventListener("input", (e) => {
   e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
   const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
   e.currentTarget.dataset.value = input >= 1 ? input : "1";
-  passengers_input.value = `${(
+  passengers_output.value = `${(
     parseInt(adults.querySelector("input").dataset.value) +
     parseInt(child.querySelector("input").dataset.value) +
     parseInt(infant.querySelector("input").dataset.value)
@@ -222,7 +223,7 @@ child.querySelectorAll("button").forEach((button, index) => {
       if (parseInt(child.querySelector("input").dataset.value) < 9) {
         child.querySelector("input").value = (parseInt(child.querySelector("input").dataset.value) + 1).toLocaleString("fa-IR");
         child.querySelector("input").dataset.value = parseInt(child.querySelector("input").dataset.value) + 1;
-        passengers_input.value = `${(
+        passengers_output.value = `${(
           parseInt(adults.querySelector("input").dataset.value) +
           parseInt(child.querySelector("input").dataset.value) +
           parseInt(infant.querySelector("input").dataset.value)
@@ -232,7 +233,7 @@ child.querySelectorAll("button").forEach((button, index) => {
       if (parseInt(child.querySelector("input").dataset.value) > 0) {
         child.querySelector("input").value = (parseInt(child.querySelector("input").dataset.value) - 1).toLocaleString("fa-IR");
         child.querySelector("input").dataset.value = parseInt(child.querySelector("input").dataset.value) - 1;
-        passengers_input.value = `${(
+        passengers_output.value = `${(
           parseInt(adults.querySelector("input").dataset.value) +
           parseInt(child.querySelector("input").dataset.value) +
           parseInt(infant.querySelector("input").dataset.value)
@@ -246,7 +247,7 @@ child.querySelector("input").addEventListener("input", (e) => {
   e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
   const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
   e.currentTarget.dataset.value = input >= 0 ? input : "0";
-  passengers_input.value = `${(
+  passengers_output.value = `${(
     parseInt(adults.querySelector("input").dataset.value) +
     parseInt(child.querySelector("input").dataset.value) +
     parseInt(infant.querySelector("input").dataset.value)
@@ -262,7 +263,7 @@ infant.querySelectorAll("button").forEach((button, index) => {
           "fa-IR"
         );
         infant.querySelector("input").dataset.value = parseInt(infant.querySelector("input").dataset.value) + 1;
-        passengers_input.value = `${(
+        passengers_output.value = `${(
           parseInt(adults.querySelector("input").dataset.value) +
           parseInt(child.querySelector("input").dataset.value) +
           parseInt(infant.querySelector("input").dataset.value)
@@ -274,7 +275,7 @@ infant.querySelectorAll("button").forEach((button, index) => {
           "fa-IR"
         );
         infant.querySelector("input").dataset.value = parseInt(infant.querySelector("input").dataset.value) - 1;
-        passengers_input.value = `${(
+        passengers_output.value = `${(
           parseInt(adults.querySelector("input").dataset.value) +
           parseInt(child.querySelector("input").dataset.value) +
           parseInt(infant.querySelector("input").dataset.value)
@@ -288,7 +289,7 @@ infant.querySelector("input").addEventListener("input", (e) => {
   e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
   const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
   e.currentTarget.dataset.value = input >= 0 ? input : "0";
-  passengers_input.value = `${(
+  passengers_output.value = `${(
     parseInt(adults.querySelector("input").dataset.value) +
     parseInt(child.querySelector("input").dataset.value) +
     parseInt(infant.querySelector("input").dataset.value)

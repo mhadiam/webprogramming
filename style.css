@@ -182,6 +182,10 @@ header>form>main>div:first-of-type>button {
   cursor: pointer;
 }
 
+header>form>main>div:first-of-type>button:hover {
+  color: var(--front-color-hover);
+}
+
 header>form>main>div:first-of-type>button::before {
   font-family: 'uicons-regular-rounded';
   content: "\f2e6";

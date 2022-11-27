@@ -87,7 +87,12 @@ depart_input.addEventListener("click", (e) => {
     print_second_calendar();
     calendar_months.forEach((li) => li.removeAttribute("style"));
     calendar_months[0].style = calendar_months[1].style = "font-size: 18px; opacity: 1;";
-    calendar.style = "clip-path: inset(0px 0px 0px 0px)";
+    if (passengers.getAttribute("style")) {
+      passengers.removeAttribute("style");
+      setTimeout(() => (calendar.style = "clip-path: inset(0px 0px 0px 0px)"), 250);
+    } else {
+      calendar.style = "clip-path: inset(0px 0px 0px 0px)";
+    }
   }
 });
 

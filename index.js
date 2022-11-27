@@ -2,14 +2,6 @@ const from_input = document.querySelector("#from");
 const to_input = document.querySelector("#to");
 const swap_button = document.querySelector("#swap");
 const trip_input = document.querySelector("#trip");
-const MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-const MONTHS_LENGTH = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
-const TODAY = {
-  gregorian: null,
-  month: null,
-  date: null,
-  day: null,
-};
 const depart_label = document.querySelector("#depart-label");
 const depart_input = document.querySelector("#depart");
 const return_input = document.querySelector("#return");
@@ -23,6 +15,17 @@ const second_calendar = document.querySelector("header>form>main>div:nth-of-type
 const second_calendar_days = document.querySelectorAll(
   "header>form>main>div:nth-of-type(3)>div>div>div:nth-of-type(2)>span:nth-of-type(n + 8)"
 );
+const passengers_input = document.querySelector("#passengers");
+const passengers = document.querySelector("header>form>main>div:nth-of-type(4)>div");
+
+const MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+const MONTHS_LENGTH = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+const TODAY = {
+  gregorian: null,
+  month: null,
+  date: null,
+  day: null,
+};
 
 const define_today = (date) => {
   TODAY.gregorian = date;
@@ -99,9 +102,6 @@ trip_input.addEventListener("click", () => {
       down = false;
       if (trip_input.value === "یک طرفه") {
         trip_input.value = "رفت و برگشت";
-        depart_input.className = "return";
-        depart_label.className = "return";
-        setTimeout(() => (depart_label.textContent = "رفت و برگشت"), 150);
         depart_input.value = `${new Date(parseInt(return_input.value)).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
@@ -118,9 +118,6 @@ trip_input.addEventListener("click", () => {
         return_input.value = `${return_input.value} ${parseInt(return_input.value) + 86400000 * 7}`;
       } else {
         trip_input.value = "یک طرفه";
-        depart_label.textContent = "رفت";
-        depart_input.removeAttribute("class");
-        depart_label.removeAttribute("class");
         depart_input.value = `${
           new Date(parseInt(return_input.value.split(" ")[0])).toLocaleDateString("fa-IR").split("/")[2]
         } ${
@@ -157,6 +154,20 @@ for (let i = 0; i < 12; i++) {
   calendar_months[i].textContent = MONTHS[(TODAY.month + i) % 12];
 }
 
-document.body.addEventListener("click", () => calendar.removeAttribute("style"));
+passengers_input.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (passengers.getAttribute("style")) passengers.removeAttribute("style");
+  else if (calendar.getAttribute("style")) {
+    calendar.removeAttribute("style");
+    setTimeout(() => (passengers.style = "clip-path: inset(0px 0px 0px 0px)"), 250);
+  } else {
+    passengers.style = "clip-path: inset(0px 0px 0px 0px)";
+  }
+});
+
+document.body.addEventListener("click", () => {
+  calendar.removeAttribute("style");
+  passengers.removeAttribute("style");
+});
 
 calendar.addEventListener("click", (e) => e.stopPropagation());

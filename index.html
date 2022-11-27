@@ -77,7 +77,7 @@
           </div>
           <div>
             <label for="depart"
-                   id="depart-label">رفت</label>
+                   id="depart-label">زمان</label>
             <input type="text"
                    name="depart"
                    id="depart"
@@ -204,6 +204,48 @@
                   <span></span>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <input type="text"
+                   name="passengers"
+                   id="passengers"
+                   value="۱ مسافر"
+                   readonly>
+            <div>
+              <label for="adults">بزرگسال (۱۲+ سال)</label>
+              <span>
+                <button>+</button>
+                <input type="text"
+                       name="adults"
+                       id="adults"
+                       value="۱"
+                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                </input>
+                <button>-</button>
+              </span>
+              <label for="child">خردسال (۲-۱۱ سال)</label>
+              <span>
+                <button>+</button>
+                <input type="text"
+                       name="child"
+                       id="child"
+                       value="۰"
+                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                </input>
+                <button>-</button>
+              </span>
+              <label for="infant">نوزاد (زیر ۲ سال)</label>
+              <span>
+                <button>+</button>
+                <input type="text"
+                       name="infant"
+                       id="infant"
+                       value="۰"
+                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                </input>
+                <button>-</button>
+              </span>
             </div>
           </div>
         </main>

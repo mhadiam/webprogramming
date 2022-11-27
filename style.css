@@ -233,16 +233,10 @@ header>form>main>div:nth-of-type(3)>input {
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  transition: inline-size 150ms ease;
 }
 
 header>form>main>div:nth-of-type(3)>input:hover {
   color: var(--front-color-hover);
-}
-
-header>form>main>div:nth-of-type(3)>input.return {
-  inline-size: calc(20ch + 5rem);
-  padding-inline-start: 5rem;
 }
 
 header>form>main>div:nth-of-type(3)>label {
@@ -252,11 +246,6 @@ header>form>main>div:nth-of-type(3)>label {
   right: 0;
   opacity: 0.5;
   text-align: center;
-  transition: inline-size 150ms ease;
-}
-
-header>form>main>div:nth-of-type(3)>label.return {
-  inline-size: 5rem;
 }
 
 header>form>main>div:nth-of-type(3)>div {
@@ -268,8 +257,8 @@ header>form>main>div:nth-of-type(3)>div {
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
-  clip-path: inset(0px 0px 600px 0px);
-  transition: clip-path 500ms ease-out;
+  clip-path: inset(0px 0px 400px 0px);
+  transition: clip-path 250ms ease-out;
 }
 
 header>form>main>div:nth-of-type(3)>div>ul {
@@ -346,6 +335,66 @@ header>form>main>div:nth-of-type(3)>div>div>div>span:nth-of-type(n + 8):not(.pas
   cursor: pointer;
   background-color: var(--front-color);
   color: white;
+}
+
+header>form>main>div:nth-of-type(4) {
+  overflow: visible;
+}
+
+header>form>main>div:nth-of-type(4)>input {
+  inline-size: calc(10ch);
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+header>form>main>div:nth-of-type(4)>div {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 0 1px 1px 1px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  clip-path: inset(0px 0px 200px 0px);
+  transition: clip-path 250ms ease-out;
+}
+
+header>form>main>div:nth-of-type(4)>div>* {
+  block-size: 64px;
+}
+
+header>form>main>div:nth-of-type(4)>div>label {
+  line-height: 64px;
+  padding-inline-start: 1rem;
+  margin-inline-end: 1rem;
+  white-space: nowrap;
+}
+
+header>form>main>div:nth-of-type(4)>div>span {
+  display: flex;
+  align-items: center;
+  padding-inline-end: 1rem;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>* {
+  inline-size: 2rem;
+  block-size: 32px;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>button {
+  border: 1px solid var(--front-color-hover);
+  cursor: pointer;
+  transition: translate 150ms ease;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>button:hover {
+  translate: 0px 1px;
 }
 
 header>form>button {

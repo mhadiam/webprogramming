@@ -128,7 +128,7 @@ let all_days = [...first_calendar_days, ...second_calendar_days];
 all_days.forEach((span) => {
   span.addEventListener("click", () => {
     if (start === null && span.textContent.length && !span.classList.contains("past")) {
-      start = parseInt(span.getAttribute("data-date"));
+      start = parseInt(span.dataset.date);
       if (trip_input.value === "یک طرفه") {
         depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
@@ -144,9 +144,9 @@ all_days.forEach((span) => {
       end === null &&
       span.textContent.length &&
       !span.classList.contains("past") &&
-      parseInt(span.getAttribute("data-date")) > start
+      parseInt(span.dataset.date) > start
     ) {
-      end = parseInt(span.getAttribute("data-date"));
+      end = parseInt(span.dataset.date);
       depart_input.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
         MONTHS[
           ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(
@@ -167,11 +167,11 @@ all_days.forEach((span) => {
 
   if (span.getAttribute("class") !== "past") {
     span.addEventListener("mouseover", () => {
-      let date_key = parseInt(span.getAttribute("data-date"));
+      let date_key = parseInt(span.dataset.date);
       all_days.forEach((day) => day.classList.remove("include"));
       if (start !== null && date_key > start) {
         for (const day of all_days) {
-          let tmp = parseInt(day.getAttribute("data-date"));
+          let tmp = parseInt(day.dataset.date);
           if (tmp > start && tmp < date_key) {
             day.classList.add("include");
           }

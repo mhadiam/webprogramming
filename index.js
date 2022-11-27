@@ -17,6 +17,9 @@ const second_calendar_days = document.querySelectorAll(
 );
 const passengers_input = document.querySelector("#passengers");
 const passengers = document.querySelector("header>form>main>div:nth-of-type(4)>div");
+const adults = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(1)");
+const child = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(2)");
+const infant = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(3)");
 
 const MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const MONTHS_LENGTH = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
@@ -171,3 +174,123 @@ document.body.addEventListener("click", () => {
 });
 
 calendar.addEventListener("click", (e) => e.stopPropagation());
+
+passengers.addEventListener("click", (e) => e.stopPropagation());
+
+adults.querySelectorAll("button").forEach((button, index) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (index === 0) {
+      if (parseInt(adults.querySelector("input").dataset.value) < 9) {
+        adults.querySelector("input").value = (parseInt(adults.querySelector("input").dataset.value) + 1).toLocaleString(
+          "fa-IR"
+        );
+        adults.querySelector("input").dataset.value = parseInt(adults.querySelector("input").dataset.value) + 1;
+        passengers_input.value = `${(
+          parseInt(adults.querySelector("input").dataset.value) +
+          parseInt(child.querySelector("input").dataset.value) +
+          parseInt(infant.querySelector("input").dataset.value)
+        ).toLocaleString("fa-IR")} مسافر`;
+      }
+    } else if (parseInt(adults.querySelector("input").dataset.value) > 1) {
+      adults.querySelector("input").value = (parseInt(adults.querySelector("input").dataset.value) - 1).toLocaleString("fa-IR");
+      adults.querySelector("input").dataset.value = parseInt(adults.querySelector("input").dataset.value) - 1;
+      passengers_input.value = `${(
+        parseInt(adults.querySelector("input").dataset.value) +
+        parseInt(child.querySelector("input").dataset.value) +
+        parseInt(infant.querySelector("input").dataset.value)
+      ).toLocaleString("fa-IR")} مسافر`;
+    }
+  });
+});
+
+adults.querySelector("input").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
+  const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
+  e.currentTarget.dataset.value = input >= 1 ? input : "1";
+  passengers_input.value = `${(
+    parseInt(adults.querySelector("input").dataset.value) +
+    parseInt(child.querySelector("input").dataset.value) +
+    parseInt(infant.querySelector("input").dataset.value)
+  ).toLocaleString("fa-IR")} مسافر`;
+});
+
+child.querySelectorAll("button").forEach((button, index) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (index === 0) {
+      if (parseInt(child.querySelector("input").dataset.value) < 9) {
+        child.querySelector("input").value = (parseInt(child.querySelector("input").dataset.value) + 1).toLocaleString("fa-IR");
+        child.querySelector("input").dataset.value = parseInt(child.querySelector("input").dataset.value) + 1;
+        passengers_input.value = `${(
+          parseInt(adults.querySelector("input").dataset.value) +
+          parseInt(child.querySelector("input").dataset.value) +
+          parseInt(infant.querySelector("input").dataset.value)
+        ).toLocaleString("fa-IR")} مسافر`;
+      }
+    } else {
+      if (parseInt(child.querySelector("input").dataset.value) > 0) {
+        child.querySelector("input").value = (parseInt(child.querySelector("input").dataset.value) - 1).toLocaleString("fa-IR");
+        child.querySelector("input").dataset.value = parseInt(child.querySelector("input").dataset.value) - 1;
+        passengers_input.value = `${(
+          parseInt(adults.querySelector("input").dataset.value) +
+          parseInt(child.querySelector("input").dataset.value) +
+          parseInt(infant.querySelector("input").dataset.value)
+        ).toLocaleString("fa-IR")} مسافر`;
+      }
+    }
+  });
+});
+
+child.querySelector("input").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
+  const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
+  e.currentTarget.dataset.value = input >= 0 ? input : "0";
+  passengers_input.value = `${(
+    parseInt(adults.querySelector("input").dataset.value) +
+    parseInt(child.querySelector("input").dataset.value) +
+    parseInt(infant.querySelector("input").dataset.value)
+  ).toLocaleString("fa-IR")} مسافر`;
+});
+
+infant.querySelectorAll("button").forEach((button, index) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (index === 0) {
+      if (parseInt(infant.querySelector("input").dataset.value) < 9) {
+        infant.querySelector("input").value = (parseInt(infant.querySelector("input").dataset.value) + 1).toLocaleString(
+          "fa-IR"
+        );
+        infant.querySelector("input").dataset.value = parseInt(infant.querySelector("input").dataset.value) + 1;
+        passengers_input.value = `${(
+          parseInt(adults.querySelector("input").dataset.value) +
+          parseInt(child.querySelector("input").dataset.value) +
+          parseInt(infant.querySelector("input").dataset.value)
+        ).toLocaleString("fa-IR")} مسافر`;
+      }
+    } else {
+      if (parseInt(infant.querySelector("input").dataset.value) > 0) {
+        infant.querySelector("input").value = (parseInt(infant.querySelector("input").dataset.value) - 1).toLocaleString(
+          "fa-IR"
+        );
+        infant.querySelector("input").dataset.value = parseInt(infant.querySelector("input").dataset.value) - 1;
+        passengers_input.value = `${(
+          parseInt(adults.querySelector("input").dataset.value) +
+          parseInt(child.querySelector("input").dataset.value) +
+          parseInt(infant.querySelector("input").dataset.value)
+        ).toLocaleString("fa-IR")} مسافر`;
+      }
+    }
+  });
+});
+
+infant.querySelector("input").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/(?![۰-۹])./gim, "");
+  const input = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"].indexOf(e.currentTarget.value);
+  e.currentTarget.dataset.value = input >= 0 ? input : "0";
+  passengers_input.value = `${(
+    parseInt(adults.querySelector("input").dataset.value) +
+    parseInt(child.querySelector("input").dataset.value) +
+    parseInt(infant.querySelector("input").dataset.value)
+  ).toLocaleString("fa-IR")} مسافر`;
+});

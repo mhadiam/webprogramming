@@ -220,7 +220,9 @@
                        name="adults"
                        id="adults"
                        value="۱"
-                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                       data-value="1"
+                       maxlength="1"
+                       autocomplete="off">
                 </input>
                 <button>-</button>
               </span>
@@ -231,7 +233,10 @@
                        name="child"
                        id="child"
                        value="۰"
-                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                       data-value="0"
+                       maxlength="1"
+                       autocomplete="off"
+                       oninput="this.value=this.value.replace(/(?![۰-۹])./gmi,'')">
                 </input>
                 <button>-</button>
               </span>
@@ -242,7 +247,10 @@
                        name="infant"
                        id="infant"
                        value="۰"
-                       oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+                       data-value="0"
+                       maxlength="1"
+                       autocomplete="off"
+                       oninput="this.value=this.value.replace(/(?![۰-۹])./gmi,'')">
                 </input>
                 <button>-</button>
               </span>

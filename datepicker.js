@@ -129,7 +129,7 @@ all_days.forEach((span) => {
   span.addEventListener("click", () => {
     if (start === null && span.textContent.length && !span.classList.contains("past")) {
       start = parseInt(span.dataset.date);
-      if (trip_input.value === "یک طرفه") {
+      if (trip_input.value === "oneway") {
         date_output.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${
           MONTHS[
             ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(

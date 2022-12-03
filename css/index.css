@@ -1,0 +1,376 @@
+@import 'global.css';
+
+header {
+  inline-size: 100vmax;
+  block-size: calc(100vmax * 2 / 5);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+header>img {
+  inline-size: 100vmax;
+  block-size: calc(100vmax * 2 / 5);
+  position: absolute;
+  z-index: -1;
+}
+
+header>nav {
+  block-size: calc(100vmax * 2 / 5 / 6);
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding-inline: 2rem;
+}
+
+header>nav>a:first-of-type {
+  inline-size: 50px;
+  block-size: 50px;
+  position: relative;
+}
+
+header>nav>a:hover {
+  color: var(--front-color-hover);
+}
+
+header>nav>a:first-of-type>svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+header>nav>a:first-of-type>svg:hover {
+  fill: var(--front-color-hover);
+}
+
+header>nav>a:last-of-type::before {
+  font-family: 'uicons-regular-straight';
+  content: "\f59f";
+  vertical-align: middle;
+}
+
+header>form {
+  block-size: calc(100vmax * 2 / 5 / 6);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-inline: 2rem;
+}
+
+header>form>main {
+  block-size: 50px;
+  display: flex;
+  border-block-end: 1px solid var(--front-color);
+}
+
+header>form>main>div {
+  block-size: 50px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+header>form>main>div {
+  border-inline-end: 1px solid var(--front-color);
+}
+
+header>form>main>div:first-of-type {
+  border-inline-start: 1px solid var(--front-color);
+}
+
+header>form>main>div:first-of-type>input {
+  inline-size: calc(16ch + 2.2rem + 12px);
+  color: var(--front-color-hover);
+}
+
+header>form>main>div:first-of-type>input:first-of-type {
+  padding-inline-start: 1.2rem;
+  padding-inline-end: 1rem;
+}
+
+header>form>main>div:first-of-type>input:last-of-type {
+  padding-inline-start: calc(1.2rem + 12px);
+  padding-inline-end: 1rem;
+}
+
+header>form>main>div:first-of-type>label {
+  inline-size: 1.2rem;
+  font-size: 14px;
+  position: absolute;
+  opacity: 0.5;
+  text-align: center;
+}
+
+header>form>main>div:first-of-type>label[for="from"] {
+  right: 0;
+}
+
+header>form>main>div:first-of-type>label[for="to"] {
+  right: calc(50% + 12px)
+}
+
+header>form>main>div:first-of-type>button {
+  inline-size: 24px;
+  block-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 12px);
+  top: 13px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--front-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+header>form>main>div:first-of-type>button:hover {
+  color: var(--front-color-hover);
+}
+
+header>form>main>div:first-of-type>button::before {
+  font-family: 'uicons-regular-rounded';
+  content: "\f2e6";
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+header>form>main>div:first-of-type>button::after {
+  content: '';
+  inline-size: 1px;
+  block-size: 13px;
+  display: inline-block;
+  position: absolute;
+  bottom: -14px;
+  left: calc(50% - 0.5px);
+  background-color: var(--front-color);
+}
+
+header>form>main>div:nth-of-type(2)>output {
+  inline-size: calc(12ch + 2rem);
+  padding-inline-start: 2rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+header>form>main>div:nth-of-type(2)>output:hover {
+  color: var(--front-color-hover);
+}
+
+header>form>main>div:nth-of-type(2)>label {
+  inline-size: 2rem;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  opacity: 0.5;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(3) {
+  overflow: visible;
+}
+
+header>form>main>div:nth-of-type(3)>output {
+  inline-size: calc(20ch + 2rem);
+  padding-inline-start: 2rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+header>form>main>div:nth-of-type(3)>output:hover {
+  color: var(--front-color-hover);
+}
+
+header>form>main>div:nth-of-type(3)>label {
+  inline-size: 2rem;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  opacity: 0.5;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(3)>div {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: calc(-44ch - 6.4rem - 24px - 2px);
+  padding: 0 1px 1px 1px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  clip-path: inset(0px 0px 450px 0px);
+  transition: clip-path 250ms ease-out;
+}
+
+header>form>main>div:nth-of-type(3)>div>ul {
+  block-size: 50px;
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  margin-block-end: 1rem;
+  font-size: 14px;
+  list-style-type: none;
+}
+
+header>form>main>div:nth-of-type(3)>div>ul>li {
+  flex-grow: 1;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.5;
+  color: var(--front-color-hover);
+  transition: all 150ms ease;
+}
+
+header>form>main>div:nth-of-type(3)>div>ul>li:hover {
+  opacity: 1;
+}
+
+header>form>main>div:nth-of-type(3)>div>div {
+  display: flex;
+  gap: 1px;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+header>form>main>div:nth-of-type(3)>div>div::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 50%;
+  inline-size: 1px;
+  background-color: var(--front-color);
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div:first-of-type {
+  padding-inline-end: 1px;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div {
+  flex-basis: 50%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span {
+  block-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span.past {
+  opacity: 0.5;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span.include {
+  background-color: rgba(72, 71, 74, 0.25);
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span.selected {
+  background-color: var(--front-color);
+  color: white;
+}
+
+header>form>main>div:nth-of-type(3)>div>div>div>span:nth-of-type(n + 8):not(.past):not(:empty):hover {
+  cursor: pointer;
+  background-color: var(--front-color);
+  color: white;
+}
+
+header>form>main>div:nth-of-type(4) {
+  overflow: visible;
+}
+
+header>form>main>div:nth-of-type(4)>output {
+  inline-size: calc(10ch);
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+header>form>main>div:nth-of-type(4)>output:hover {
+  color: var(--front-color-hover);
+}
+
+header>form>main>div:nth-of-type(4)>div {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 0 1px 1px 1px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  clip-path: inset(0px 0px 200px 0px);
+  transition: clip-path 150ms ease-out;
+}
+
+header>form>main>div:nth-of-type(4)>div>* {
+  block-size: 64px;
+}
+
+header>form>main>div:nth-of-type(4)>div>label {
+  line-height: 64px;
+  padding-inline-start: 1rem;
+  margin-inline-end: 1rem;
+  white-space: nowrap;
+}
+
+header>form>main>div:nth-of-type(4)>div>span {
+  display: flex;
+  align-items: center;
+  padding-inline-end: 1rem;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>* {
+  inline-size: 2rem;
+  block-size: 32px;
+  text-align: center;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>button {
+  border: 1px solid var(--front-color-hover);
+  cursor: pointer;
+  transition: translate 150ms ease;
+}
+
+header>form>main>div:nth-of-type(4)>div>span>button:hover {
+  translate: 0px 1px;
+}
+
+header>form>button {
+  block-size: 2rem;
+  background-color: var(--front-color-hover);
+  color: var(--back-color);
+  padding-block: 0;
+  padding-inline-start: calc(18px + 1.5rem);
+  padding-inline-end: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: translate 150ms ease;
+}
+
+header>form>button:hover {
+  translate: 0px 1px;
+}
+
+header>form>button::before {
+  font-family: 'uicons-regular-rounded';
+  content: "\f420";
+  vertical-align: middle;
+  position: absolute;
+  right: 1rem;
+}

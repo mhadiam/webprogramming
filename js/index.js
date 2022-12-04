@@ -31,6 +31,12 @@ const TODAY = {
   day: null,
 };
 
+window.addEventListener("scroll", () => {
+  if (this.scrollY > 60) {
+    document.querySelector("header").className = "backblur";
+  } else document.querySelector("header").removeAttribute("class");
+});
+
 const define_today = (date) => {
   TODAY.gregorian = date;
   TODAY.month = ["۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹", "۱۰", "۱۱", "۱۲"].indexOf(

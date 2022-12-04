@@ -138,7 +138,9 @@ all_days.forEach((span) => {
           ]
         } ${new Date(start).toLocaleDateString("fa-IR").split("/")[0]}`;
         date_input.value = start;
-        calendar.style = "clip-path: inset(0px 0px 600px 0px)";
+        if (window.innerWidth > 1439) {
+          calendar.style = "clip-path: inset(0px 0px 450px 0px)";
+        } else calendar.style = "clip-path: inset(0px 0px 900px 0px)";
       } else span.setAttribute("class", "selected");
     } else if (
       end === null &&
@@ -161,7 +163,9 @@ all_days.forEach((span) => {
         ]
       }`;
       date_input.value = `${start} ${end}`;
-      calendar.style = "clip-path: inset(0px 0px 600px 0px)";
+      if (window.innerWidth > 1439) {
+        calendar.style = "clip-path: inset(0px 0px 450px 0px)";
+      } else calendar.style = "clip-path: inset(0px 0px 900px 0px)";
     }
   });
 

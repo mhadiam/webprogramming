@@ -9,11 +9,51 @@ header {
   position: relative;
 }
 
+header::before {
+  content: '';
+  display: inline-block;
+  inline-size: 100vmax;
+  block-size: 60px;
+  position: fixed;
+  top: 0;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  opacity: 0;
+  transition: opacity 150ms ease;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1439px) {
+  header {
+    inline-size: 100vmin;
+    block-size: calc(100vmin * 2 / 5 + 187px);
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  header::before {
+    block-size: 75px;
+    opacity: 0.5;
+  }
+}
+
+header.backblur::before {
+  opacity: 1;
+}
+
 header>img {
   inline-size: 100vmax;
   block-size: calc(100vmax * 2 / 5);
   position: absolute;
-  z-index: -1;
+  z-index: -2;
+}
+
+@media screen and (max-width: 1439px) {
+  header>img {
+    inline-size: 100vmin;
+    block-size: calc(100vmin * 2 / 5);
+  }
 }
 
 header>nav {
@@ -23,6 +63,18 @@ header>nav {
   align-items: center;
   gap: 2rem;
   padding-inline: 2rem;
+  position: sticky;
+  top: calc((100vmax * 2 / 5 / 6 - 60px) / -2);
+}
+
+@media screen and (max-width: 1439px) {
+  header>nav {
+    inline-size: 100vmin;
+    block-size: 75px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+  }
 }
 
 header>nav>a:first-of-type {
@@ -57,12 +109,38 @@ header>form {
   align-items: center;
   gap: 2rem;
   padding-inline: 2rem;
+  position: sticky;
+  top: calc((100vmax * 2 / 5 / 6 - 60px) / -2);
 }
 
 header>form>main {
   block-size: 50px;
   display: flex;
   border-block-end: 1px solid var(--front-color);
+}
+
+@media screen and (max-width: 1439px) {
+  header>form {
+    block-size: auto;
+    flex-direction: column;
+    align-items: stretch;
+    position: static;
+    top: auto;
+    gap: 0;
+    transform: translateY(calc(100vmin * 2 / 5 + 5px));
+    z-index: -2;
+  }
+
+  header>form>main {
+    block-size: calc(50px * 3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "fromto fromto fromto"
+      "trip date date"
+      "passengers passengers passengers";
+    border: 1px solid var(--front-color);
+  }
 }
 
 header>form>main>div {
@@ -81,6 +159,26 @@ header>form>main>div:first-of-type {
   border-inline-start: 1px solid var(--front-color);
 }
 
+@media screen and (max-width: 1439px) {
+  header>form>main>div:first-of-type {
+    border-inline: none;
+    grid-area: fromto;
+  }
+
+  header>form>main>div {
+    border: none;
+    border-block-end: 1px solid var(--front-color);
+  }
+
+  header>form>main>div:nth-of-type(2) {
+    border-inline-end: 1px solid var(--front-color);
+  }
+
+  header>form>main>div:last-of-type {
+    border: none;
+  }
+}
+
 header>form>main>div:first-of-type>input {
   inline-size: calc(16ch + 2.2rem + 12px);
   color: var(--front-color-hover);
@@ -94,6 +192,12 @@ header>form>main>div:first-of-type>input:first-of-type {
 header>form>main>div:first-of-type>input:last-of-type {
   padding-inline-start: calc(1.2rem + 12px);
   padding-inline-end: 1rem;
+}
+
+@media screen and (max-width: 1439px) {
+  header>form>main>div:first-of-type>input {
+    inline-size: 50%;
+  }
 }
 
 header>form>main>div:first-of-type>label {
@@ -159,6 +263,16 @@ header>form>main>div:nth-of-type(2)>output {
   -webkit-user-select: none;
 }
 
+@media screen and (max-width: 1439px) {
+  header>form>main>div:nth-of-type(2) {
+    grid-area: trip;
+  }
+
+  header>form>main>div:nth-of-type(2)>output {
+    inline-size: 100%;
+  }
+}
+
 header>form>main>div:nth-of-type(2)>output:hover {
   color: var(--front-color-hover);
 }
@@ -208,7 +322,12 @@ header>form>main>div:nth-of-type(3)>div {
   -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
   clip-path: inset(0px 0px 450px 0px);
-  transition: clip-path 250ms ease-out;
+  transition: all 250ms ease-out;
+  z-index: 1;
+}
+
+header.backblur>form>main>div:nth-of-type(3)>div {
+  top: 55px;
 }
 
 header>form>main>div:nth-of-type(3)>div>ul {
@@ -260,6 +379,53 @@ header>form>main>div:nth-of-type(3)>div>div>div {
   flex-basis: 50%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+}
+
+
+@media screen and (max-width: 1439px) {
+  header>form>main>div:nth-of-type(3) {
+    grid-area: date;
+  }
+
+  header>form>main>div:nth-of-type(3)>output {
+    inline-size: 100%;
+  }
+
+  header>form>main>div:nth-of-type(3)>div {
+    right: calc(-50% - 1px);
+    left: -1px;
+    clip-path: inset(0px 0px 900px 0px);
+  }
+
+  header>form>main>div:nth-of-type(3)>div>ul {
+    block-size: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  header>form>main>div:nth-of-type(3)>div>ul>li {
+    line-height: 50px;
+    padding-inline: 1rem;
+    flex-grow: 0;
+  }
+
+  header>form>main>div:nth-of-type(3)>div>div {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  header>form>main>div:nth-of-type(3)>div>div::before {
+    display: none;
+  }
+
+  header>form>main>div:nth-of-type(3)>div>div>div:first-of-type {
+    padding: 0;
+  }
+
+  header>form>main>div:nth-of-type(3)>div>div>div {
+    flex-basis: 100%;
+  }
 }
 
 header>form>main>div:nth-of-type(3)>div>div>div>span {
@@ -315,7 +481,27 @@ header>form>main>div:nth-of-type(4)>div {
   -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
   clip-path: inset(0px 0px 200px 0px);
-  transition: clip-path 150ms ease-out;
+  transition: all 150ms ease-out;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1439px) {
+  header>form>main>div:nth-of-type(4) {
+    grid-area: passengers;
+  }
+
+  header>form>main>div:nth-of-type(4)>output {
+    inline-size: 100%;
+  }
+
+  header>form>main>div:nth-of-type(4)>div {
+    left: auto;
+    right: -1px;
+  }
+}
+
+header.backblur>form>main>div:nth-of-type(4)>div {
+  top: 55px;
 }
 
 header>form>main>div:nth-of-type(4)>div>* {

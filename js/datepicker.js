@@ -146,7 +146,7 @@ all_days.forEach((span) => {
       end === null &&
       span.textContent.length &&
       !span.classList.contains("past") &&
-      parseInt(span.dataset.date) > start
+      parseInt(span.dataset.date) > start + 60000
     ) {
       end = parseInt(span.dataset.date);
       date_output.value = `${new Date(start).toLocaleDateString("fa-IR").split("/")[2]} ${

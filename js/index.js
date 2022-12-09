@@ -1,5 +1,7 @@
 const from_input = document.querySelector("#from-input");
+const from_results = document.querySelector("header>form>main>div:first-of-type>ul:first-of-type");
 const to_input = document.querySelector("#to-input");
+const to_results = document.querySelector("header>form>main>div:first-of-type>ul:last-of-type");
 const swap_button = document.querySelector("#swap");
 const trip_output = document.querySelector("#trip-output");
 const trip_input = document.querySelector("#trip-input");
@@ -21,6 +23,7 @@ const passengers = document.querySelector("header>form>main>div:nth-of-type(4)>d
 const adults = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(1)");
 const child = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(2)");
 const infant = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(3)");
+const cards = document.querySelectorAll("section article>figure");
 
 const MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const MONTHS_LENGTH = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
@@ -33,7 +36,8 @@ const TODAY = {
 
 window.addEventListener("scroll", () => {
   if (this.scrollY > 60) {
-    document.querySelector("header").className = "backblur";
+    if (this.scrollY > window.innerWidth / 3) document.querySelector("header").removeAttribute("class");
+    else document.querySelector("header").className = "backblur";
   } else document.querySelector("header").removeAttribute("class");
 });
 
@@ -79,6 +83,7 @@ const define_today = (date) => {
 };
 
 swap_button.addEventListener("click", () => {
+  document.querySelector("header>form>main>div:first-of-type").style = "overflow: hidden";
   let y_offset = 0;
   let down = true;
 
@@ -95,10 +100,66 @@ swap_button.addEventListener("click", () => {
 
     down ? (y_offset += 5) : (y_offset -= 5);
 
-    y_offset >= 0 && window.requestAnimationFrame(step);
+    y_offset >= 0
+      ? window.requestAnimationFrame(step)
+      : document.querySelector("header>form>main>div:first-of-type").removeAttribute("style");
   };
 
   window.requestAnimationFrame(step);
+});
+
+from_input.addEventListener("input", () => {
+  if (from_input.value.length > 1) {
+    let results = [];
+    search_results.forEach((e) => {
+      if (
+        (to_input.value.length === 0 && e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.from)) ||
+        (to_input.value.length > 0 &&
+          e.from.includes(from_input.value) &&
+          e.to.includes(to_input.value) &&
+          !results.some((li) => li.innerText === e.from))
+      ) {
+        from_results.innerHTML = "";
+        let li = document.createElement("li");
+        li.innerText = e.from;
+        li.addEventListener("click", () => {
+          from_input.value = e.from;
+          from_results.innerHTML = "";
+        });
+        results.push(li);
+      }
+    });
+    results.forEach((li) => from_results.appendChild(li));
+  } else {
+    from_results.innerHTML = "";
+  }
+});
+
+to_input.addEventListener("input", () => {
+  if (to_input.value.length > 1) {
+    let results = [];
+    search_results.forEach((e) => {
+      if (
+        (from_input.value.length === 0 && e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.to)) ||
+        (from_input.value.length > 0 &&
+          e.to.includes(to_input.value) &&
+          e.from.includes(from_input.value) &&
+          !results.some((li) => li.innerText === e.to))
+      ) {
+        to_results.innerHTML = "";
+        let li = document.createElement("li");
+        li.innerText = e.to;
+        li.addEventListener("click", () => {
+          to_input.value = e.to;
+          to_results.innerHTML = "";
+        });
+        results.push(li);
+      }
+    });
+    results.forEach((li) => to_results.appendChild(li));
+  } else {
+    to_results.innerHTML = "";
+  }
 });
 
 trip_output.addEventListener("click", () => {
@@ -300,4 +361,20 @@ infant.querySelector("input").addEventListener("input", (e) => {
     parseInt(child.querySelector("input").dataset.value) +
     parseInt(infant.querySelector("input").dataset.value)
   ).toLocaleString("fa-IR")} مسافر`;
+});
+
+cards.forEach((figure) => {
+  figure.addEventListener("mousemove", (e) => {
+    let w = figure.getBoundingClientRect().width;
+    let h = figure.getBoundingClientRect().height;
+    let x = e.clientX - (figure.getBoundingClientRect().left + w / 2);
+    let y = -(e.clientY - (figure.getBoundingClientRect().top + h / 2));
+    figure.querySelector("img").style = `transform: rotate3d(${y}, ${x}, 0, ${
+      (Math.sqrt(x ** 2 + y ** 2) / Math.sqrt(h ** 2 / 4 + w ** 2 / 4)) * 10
+    }deg)`;
+  });
+
+  figure.addEventListener("mouseout", () => {
+    figure.querySelector("img").removeAttribute("style");
+  });
 });

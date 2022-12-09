@@ -92,7 +92,7 @@ header>form>main>div {
   block-size: 50px;
   display: flex;
   align-items: center;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
 }
 
@@ -101,6 +101,7 @@ header>form>main>div {
 }
 
 header>form>main>div:first-of-type {
+  overflow: visible;
   border-inline-start: 1px solid var(--front-color);
 }
 

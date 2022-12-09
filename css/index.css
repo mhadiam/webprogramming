@@ -572,6 +572,7 @@ footer>figure>figcaption {
 footer>address>ul {
   list-style-type: none;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 3rem;
 }
@@ -764,5 +765,10 @@ footer>address>ul>li>a:hover {
   section article>figure>figcaption {
     font-size: 12px;
     line-height: 1rem;
+  }
+
+  footer>address>ul {
+    flex-direction: column;
+    gap: 0;
   }
 }

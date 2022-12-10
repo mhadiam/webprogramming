@@ -546,7 +546,7 @@ section>article>a:hover {
 
 section>article>a::before {
   font-family: 'uicons-regular-rounded';
-  content: "\f2e6";
+  content: "\f14a";
   vertical-align: middle;
   position: absolute;
   left: 2rem;

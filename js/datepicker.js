@@ -169,18 +169,16 @@ all_days.forEach((span) => {
     }
   });
 
-  if (span.getAttribute("class") !== "past") {
-    span.addEventListener("mouseover", () => {
-      let date_key = parseInt(span.dataset.date);
-      all_days.forEach((day) => day.classList.remove("include"));
-      if (start !== null && date_key > start) {
-        for (const day of all_days) {
-          let tmp = parseInt(day.dataset.date);
-          if (tmp > start && tmp < date_key) {
-            day.classList.add("include");
-          }
+  span.addEventListener("mouseover", () => {
+    let date_key = parseInt(span.dataset.date);
+    all_days.forEach((day) => day.classList.remove("include"));
+    if (start !== null && date_key > start && date_key > Date.now() + 60000) {
+      for (const day of all_days) {
+        let tmp = parseInt(day.dataset.date);
+        if (tmp > start && tmp < date_key) {
+          day.classList.add("include");
         }
       }
-    });
-  }
+    }
+  });
 });

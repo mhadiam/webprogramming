@@ -177,6 +177,10 @@ header>form>main>div:first-of-type>ul>li:hover {
   color: var(--front-color-hover);
 }
 
+header>form>main>div:first-of-type>ul>li:not(:last-of-type) {
+  border-bottom: 1px solid var(--front-color);
+}
+
 header>form>main>div:first-of-type>button {
   inline-size: 24px;
   block-size: 24px;

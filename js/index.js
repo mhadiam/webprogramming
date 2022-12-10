@@ -109,6 +109,7 @@ swap_button.addEventListener("click", () => {
 });
 
 from_input.addEventListener("input", () => {
+  from_results.innerHTML = "";
   if (from_input.value.length > 1) {
     let results = [];
     search_results.forEach((e) => {
@@ -130,12 +131,11 @@ from_input.addEventListener("input", () => {
       }
     });
     results.forEach((li) => from_results.appendChild(li));
-  } else {
-    from_results.innerHTML = "";
   }
 });
 
 to_input.addEventListener("input", () => {
+  to_results.innerHTML = "";
   if (to_input.value.length > 1) {
     let results = [];
     search_results.forEach((e) => {
@@ -157,8 +157,6 @@ to_input.addEventListener("input", () => {
       }
     });
     results.forEach((li) => to_results.appendChild(li));
-  } else {
-    to_results.innerHTML = "";
   }
 });
 

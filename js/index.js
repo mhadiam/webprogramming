@@ -111,8 +111,8 @@ swap_button.addEventListener("click", () => {
 
 from_input.addEventListener("input", () => {
   from_results.innerHTML = "";
-  if (from_input.value.length > 1) {
-    let results = [];
+  let results = [];
+  if (from_input.value.length >= 1) {
     search_results.forEach((e) => {
       if (
         (to_input.value.length === 0 && e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.from)) ||
@@ -131,14 +131,40 @@ from_input.addEventListener("input", () => {
         results.push(li);
       }
     });
-    results.forEach((li) => from_results.appendChild(li));
+  } else {
+    search_results.forEach((e) => {
+      if (to_input.value.length === 0) {
+        if (!results.some((li) => li.innerText === e.from)) {
+          from_results.innerHTML = "";
+          let li = document.createElement("li");
+          li.innerText = e.from;
+          li.addEventListener("click", () => {
+            from_input.value = e.from;
+            from_results.innerHTML = "";
+          });
+          results.push(li);
+        }
+      } else {
+        if (e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.from)) {
+          from_results.innerHTML = "";
+          let li = document.createElement("li");
+          li.innerText = e.from;
+          li.addEventListener("click", () => {
+            from_input.value = e.from;
+            from_results.innerHTML = "";
+          });
+          results.push(li);
+        }
+      }
+    });
   }
+  results.forEach((li) => from_results.appendChild(li));
 });
 
 to_input.addEventListener("input", () => {
   to_results.innerHTML = "";
-  if (to_input.value.length > 1) {
-    let results = [];
+  let results = [];
+  if (to_input.value.length >= 1) {
     search_results.forEach((e) => {
       if (
         (from_input.value.length === 0 && e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.to)) ||
@@ -157,8 +183,34 @@ to_input.addEventListener("input", () => {
         results.push(li);
       }
     });
-    results.forEach((li) => to_results.appendChild(li));
+  } else {
+    search_results.forEach((e) => {
+      if (from_input.value.length === 0) {
+        if (!results.some((li) => li.innerText === e.to)) {
+          to_results.innerHTML = "";
+          let li = document.createElement("li");
+          li.innerText = e.to;
+          li.addEventListener("click", () => {
+            to_input.value = e.to;
+            to_results.innerHTML = "";
+          });
+          results.push(li);
+        }
+      } else {
+        if (e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.to)) {
+          from_results.innerHTML = "";
+          let li = document.createElement("li");
+          li.innerText = e.from;
+          li.addEventListener("click", () => {
+            to_input.value = e.from;
+            to_results.innerHTML = "";
+          });
+          results.push(li);
+        }
+      }
+    });
   }
+  results.forEach((li) => to_results.appendChild(li));
 });
 
 trip_output.addEventListener("click", () => {

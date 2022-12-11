@@ -143,12 +143,13 @@ header>form>main>div:first-of-type>label[for="to"] {
 header>form>main>div:first-of-type>ul {
   list-style-type: none;
   position: absolute;
+  max-block-size: 300px;
   top: 50px;
   inline-size: 50%;
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
   background-color: rgba(255, 255, 255, 0.75);
-  clip-path: inset(0px 0px 250px 0px);
+  clip-path: inset(0px 0px 300px 0px);
   transition: all 150ms ease-out;
   overflow: scroll;
   z-index: 1;

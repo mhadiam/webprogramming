@@ -36,7 +36,8 @@ const TODAY = {
 
 window.addEventListener("scroll", () => {
   if (this.scrollY > 60) {
-    if (this.scrollY > window.innerWidth / 3) document.querySelector("header").removeAttribute("class");
+    if (this.scrollY > window.innerWidth / 3 + (window.innerWidth / 15 - 60))
+      document.querySelector("header").removeAttribute("class");
     else document.querySelector("header").className = "backblur";
   } else document.querySelector("header").removeAttribute("class");
 });

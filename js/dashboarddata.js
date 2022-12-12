@@ -64,95 +64,125 @@ const depart9 = document.querySelector("#depart9");
 const return9 = document.querySelector("#return9");
 
 
-
 from0.innerHTML = dashboard_data[0].from;
 to0.innerHTML = dashboard_data[0].to;
-trip0.innerHTML = dashboard_data[0].trip;
+if (dashboard_data[0].trip == "oneway") {
+    trip0.innerHTML = "یک طرفه";
+}else{
+    trip0.innerHTML = "رفت و برگشت";
+}
 depart0.innerHTML = dashboard_data[0].depart;
-if(dashboard_data[0].return == undefined){
+if (dashboard_data[0].return == undefined) {
     return0.innerHTML = "-";
-}else {
+} else {
     return0.innerHTML = dashboard_data[0].return;
 }
 from1.innerHTML = dashboard_data[1].from;
 to1.innerHTML = dashboard_data[1].to;
-trip1.innerHTML = dashboard_data[1].trip;
-depart1.innerHTML = dashboard_data[1].depart;
-if(dashboard_data[1].return == undefined){
+if (dashboard_data[1].trip == "oneway") {
+    trip1.innerHTML = "یک طرفه";
+}else{
+    trip1.innerHTML = "رفت و برگشت";
+}depart1.innerHTML = dashboard_data[1].depart;
+if (dashboard_data[1].return == undefined) {
     return1.innerHTML = "-";
-}else {
+} else {
     return1.innerHTML = dashboard_data[1].return;
 }
 from2.innerHTML = dashboard_data[2].from;
 to2.innerHTML = dashboard_data[2].to;
-trip2.innerHTML = dashboard_data[2].trip;
-depart2.innerHTML = dashboard_data[2].depart;
-if(dashboard_data[2].return == undefined){
+if (dashboard_data[2].trip == "oneway") {
+    trip2.innerHTML = "یک طرفه";
+}else{
+    trip2.innerHTML = "رفت و برگشت";
+}depart2.innerHTML = dashboard_data[2].depart;
+if (dashboard_data[2].return == undefined) {
     return2.innerHTML = "-";
-}else {
+} else {
     return2.innerHTML = dashboard_data[2].return;
 }
 from3.innerHTML = dashboard_data[3].from;
 to3.innerHTML = dashboard_data[3].to;
-trip3.innerHTML = dashboard_data[3].trip;
-depart3.innerHTML = dashboard_data[3].depart;
-if(dashboard_data[3].return == undefined){
+if (dashboard_data[3].trip == "oneway") {
+    trip3.innerHTML = "یک طرفه";
+}else{
+    trip3.innerHTML = "رفت و برگشت";
+}depart3.innerHTML = dashboard_data[3].depart;
+if (dashboard_data[3].return == undefined) {
     return3.innerHTML = "-";
-}else {
+} else {
     return3.innerHTML = dashboard_data[3].return;
 }
 from4.innerHTML = dashboard_data[4].from;
 to4.innerHTML = dashboard_data[4].to;
-trip4.innerHTML = dashboard_data[4].trip;
-depart4.innerHTML = dashboard_data[4].depart;
-if(dashboard_data[4].return == undefined){
+if (dashboard_data[4].trip == "oneway") {
+    trip4.innerHTML = "یک طرفه";
+}else{
+    trip4.innerHTML = "رفت و برگشت";
+}depart4.innerHTML = dashboard_data[4].depart;
+if (dashboard_data[4].return == undefined) {
     return4.innerHTML = "-";
-}else {
+} else {
     return4.innerHTML = dashboard_data[4].return;
 }
 from5.innerHTML = dashboard_data[5].from;
 to5.innerHTML = dashboard_data[5].to;
-trip5.innerHTML = dashboard_data[5].trip;
-depart5.innerHTML = dashboard_data[5].depart;
-if(dashboard_data[5].return == undefined){
+if (dashboard_data[5].trip == "oneway") {
+    trip5.innerHTML = "یک طرفه";
+}else{
+    trip5.innerHTML = "رفت و برگشت";
+}depart5.innerHTML = dashboard_data[5].depart;
+if (dashboard_data[5].return == undefined) {
     return5.innerHTML = "-";
-}else {
+} else {
     return5.innerHTML = dashboard_data[5].return;
 }
 from6.innerHTML = dashboard_data[6].from;
 to6.innerHTML = dashboard_data[6].to;
-trip6.innerHTML = dashboard_data[6].trip;
-depart6.innerHTML = dashboard_data[6].depart;
-if(dashboard_data[6].return == undefined){
+if (dashboard_data[6].trip == "oneway") {
+    trip6.innerHTML = "یک طرفه";
+}else{
+    trip6.innerHTML = "رفت و برگشت";
+}depart6.innerHTML = dashboard_data[6].depart;
+if (dashboard_data[6].return == undefined) {
     return6.innerHTML = "-";
-}else {
+} else {
     return6.innerHTML = dashboard_data[6].return;
 }
 from7.innerHTML = dashboard_data[7].from;
 to7.innerHTML = dashboard_data[7].to;
-trip7.innerHTML = dashboard_data[7].trip;
-depart7.innerHTML = dashboard_data[7].depart;
-if(dashboard_data[7].return == undefined){
+if (dashboard_data[7].trip == "oneway") {
+    trip7.innerHTML = "یک طرفه";
+}else{
+    trip7.innerHTML = "رفت و برگشت";
+}depart7.innerHTML = dashboard_data[7].depart;
+if (dashboard_data[7].return == undefined) {
     return7.innerHTML = "-";
-}else {
+} else {
     return7.innerHTML = dashboard_data[7].return;
 }
 from8.innerHTML = dashboard_data[8].from;
 to8.innerHTML = dashboard_data[8].to;
-trip8.innerHTML = dashboard_data[8].trip;
-depart8.innerHTML = dashboard_data[8].depart;
-if(dashboard_data[8].return == undefined){
+if (dashboard_data[8].trip == "oneway") {
+    trip8.innerHTML = "یک طرفه";
+}else{
+    trip8.innerHTML = "رفت و برگشت";
+}depart8.innerHTML = dashboard_data[8].depart;
+if (dashboard_data[8].return == undefined) {
     return8.innerHTML = "-";
-}else {
+} else {
     return8.innerHTML = dashboard_data[8].return;
 }
 from9.innerHTML = dashboard_data[9].from;
 to9.innerHTML = dashboard_data[9].to;
-trip9.innerHTML = dashboard_data[9].trip;
-depart9.innerHTML = dashboard_data[9].depart;
-if(dashboard_data[9].return == undefined){
+if (dashboard_data[9].trip == "oneway") {
+    trip9.innerHTML = "یک طرفه";
+}else{
+    trip9.innerHTML = "رفت و برگشت";
+}depart9.innerHTML = dashboard_data[9].depart;
+if (dashboard_data[9].return == undefined) {
     return9.innerHTML = "-";
-}else {
+} else {
     return9.innerHTML = dashboard_data[9].return;
 }
 

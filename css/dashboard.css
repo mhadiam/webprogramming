@@ -1,0 +1,85 @@
+@import 'global.css';
+
+table {
+    height: fit-content;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-collapse: collapse;
+}
+
+th  {
+    padding: 15px;
+    color: darkmagenta;
+    font-size: 25px;
+    width: 170px;
+    border-bottom: purple solid 4px;
+}
+
+td  {
+    color: rgb(215, 213, 97);
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    width: 170px;
+}
+
+
+body {
+    background-image:url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+header {
+    inline-size: 100vmax;
+    block-size: calc(100vmax  / 12);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+header>img {
+    inline-size: 100vmax;
+    block-size: calc(100vmax * 2 / 5);
+    position: absolute;
+    z-index: -1;
+}
+
+header>nav {
+    block-size: calc(100vmax * 2 / 5 / 6);
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding-inline: 2rem;
+}
+
+header>nav>a:first-of-type {
+    inline-size: 50px;
+    block-size: 50px;
+    position: relative;
+}
+
+header>nav>a:hover {
+    color: var(--front-color-hover);
+}
+
+header>nav>a:first-of-type>svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+header>nav>a:first-of-type>svg:hover {
+    fill: var(--front-color-hover);
+}
+
+header>nav>a:last-of-type::before {
+    font-family: 'uicons-regular-straight';
+    content: "\f59f";
+    vertical-align: middle;
+}
+

@@ -24,9 +24,6 @@ const adults = document.querySelector("header>form>main>div:nth-of-type(4)>div>s
 const child = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(2)");
 const infant = document.querySelector("header>form>main>div:nth-of-type(4)>div>span:nth-of-type(3)");
 const cards = document.querySelectorAll("section article>figure");
-
-const MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-const MONTHS_LENGTH = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
 const TODAY = {
   gregorian: null,
   month: null,

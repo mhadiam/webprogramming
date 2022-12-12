@@ -452,6 +452,21 @@ header>form>button::before {
   right: 1rem;
 }
 
+section {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+section>div {
+  background-color: rgba(255, 255, 255, 0.577);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.143);
+}
+
+
+
 @media screen and (max-width: 1439px) {
   header {
     inline-size: 100vw;
@@ -587,5 +602,9 @@ header>form>button::before {
   header>form>main>div:nth-of-type(4)>div {
     left: auto;
     right: -1px;
+  }
+
+  section {
+    grid-template-columns: 1fr;
   }
 }

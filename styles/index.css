@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  scrollbar-width: 0;
+  font-family: "Vazirmatn";
+  font-size: 16px;
+  color: var(--text);
+  direction: rtl;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+input,
+select,
+textarea,
+button,
+figure {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  outline: none;
+}
+
+label {
+  pointer-events: none;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  transition: transform 150ms ease;
+}
+button:hover {
+  transform: translateY(1px);
+}
+
+body {
+  --back-color: #e8e2de;
+  --text: #48474a;
+  --text-hover: #1a191a;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body header {
+  inline-size: 100vw;
+  block-size: 40vw;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: relative;
+  background-image: url("/assets/background.png");
+  background-size: cover;
+}
+body header nav {
+  block-size: 3rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-inline: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+}
+body header nav a:first-of-type {
+  display: flex;
+}
+body header nav a:hover {
+  color: var(--text-hover);
+}
+body header nav a:hover svg {
+  fill: var(--text-hover);
+}
+body header nav a:last-of-type::before {
+  font-family: "uicons-regular-straight";
+  content: "\f659";
+  vertical-align: middle;
+}
+body header nav a svg {
+  fill: var(--text);
+}
+body header form {
+  block-size: 3rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-inline: 2rem;
+  display: flex;
+  align-items: stretch;
+  position: sticky;
+  top: 0;
+}
+body header form main {
+  border-block-end: 1px solid var(--text);
+  display: flex;
+}
+body header form main:has(div:nth-of-type(2) > input[value=oneway]) > div:nth-of-type(3) > div > div > span.start {
+  border-radius: 2px;
+}
+body header form main > div {
+  block-size: 3rem;
+  border-inline-end: 1px solid var(--text);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+body header form main > div:first-of-type {
+  gap: 2ch;
+}
+body header form main > div:first-of-type input {
+  inline-size: 16ch;
+  border: none;
+  padding-inline-start: 3ch;
+  padding-inline-end: 1ch;
+  color: var(--text-hover);
+}
+body header form main > div:first-of-type label {
+  inline-size: 3ch;
+  position: absolute;
+  opacity: 0.5;
+  text-align: center;
+}
+body header form main > div:first-of-type label[for=from] {
+  right: 0;
+}
+body header form main > div:first-of-type label[for=to] {
+  right: 18ch;
+}
+body header form main > div:first-of-type ul {
+  position: absolute;
+}
+body header form main > div:first-of-type button {
+  inline-size: 2ch;
+  block-size: 2ch;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 16ch;
+  cursor: pointer;
+}
+body header form main > div:first-of-type button::before {
+  font-family: "uicons-regular-straight";
+  content: "\f34e";
+  vertical-align: middle;
+}
+body header form main > div:first-of-type button:hover {
+  color: var(--text-hover);
+}
+body header form main > div:nth-of-type(2) {
+  overflow: hidden;
+}
+body header form main > div:nth-of-type(2) label {
+  inline-size: 4ch;
+  position: absolute;
+  right: 0;
+  opacity: 0.5;
+  text-align: center;
+}
+body header form main > div:nth-of-type(2) output {
+  inline-size: 12ch;
+  padding-inline-start: 4ch;
+  padding-inline-end: 1ch;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body header form main > div:nth-of-type(2) output:hover {
+  color: var(--text-hover);
+}
+body header form main > div:nth-of-type(3) label {
+  inline-size: 4ch;
+  position: absolute;
+  right: 0;
+  opacity: 0.5;
+  text-align: center;
+}
+body header form main > div:nth-of-type(3) output {
+  inline-size: 18ch;
+  padding-inline-start: 4ch;
+  padding-inline-end: 1ch;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body header form main > div:nth-of-type(3) output:hover {
+  color: var(--text-hover);
+}
+body header form main > div:nth-of-type(3) > div {
+  padding: 0 1px 1px 1px;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  border-radius: 0 0 3px 3px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  clip-path: inset(0px 0px 450px 0px);
+  transition: clip-path 250ms ease-out;
+  pointer-events: none;
+}
+body header form main > div:nth-of-type(3) > div ul {
+  inline-size: calc(21rem + 2px);
+  block-size: 2rem;
+  margin-block: 1rem;
+  padding-inline: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: scroll;
+  line-height: 2rem;
+}
+body header form main > div:nth-of-type(3) > div ul li {
+  list-style: none;
+  opacity: 0.5;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+body header form main > div:nth-of-type(3) > div ul li:hover {
+  opacity: 1;
+}
+body header form main > div:nth-of-type(3) > div div {
+  block-size: calc(15.4rem + 6px);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  transition: block-size 150ms ease;
+}
+body header form main > div:nth-of-type(3) > div div.mini {
+  block-size: calc(13.2rem + 5px);
+}
+body header form main > div:nth-of-type(3) > div div span {
+  inline-size: 3rem;
+  block-size: 2.2rem;
+  line-height: 2.2rem;
+  text-align: center;
+  border-radius: 2px;
+}
+body header form main > div:nth-of-type(3) > div div span.empty {
+  pointer-events: none;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8) {
+  cursor: pointer;
+  transition: border-radius 150ms ease;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8).past {
+  cursor: auto;
+  opacity: 0.5;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8).include {
+  background-color: rgba(72, 71, 74, 0.25);
+  border-radius: 0;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8).end {
+  border-radius: 2px 0 0 2px;
+  background-color: var(--text);
+  color: whitesmoke;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8).start {
+  border-radius: 0 2px 2px 0;
+  background-color: var(--text);
+  color: whitesmoke;
+}
+body header form main > div:nth-of-type(3) > div div span:nth-of-type(n + 8):not(.selected, .past, .empty):hover {
+  background-color: var(--text);
+  color: whitesmoke;
+}
+body header form main > div:nth-of-type(4) output {
+  inline-size: 10ch;
+  padding-inline: 1ch;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body header form main > div:nth-of-type(4) output:hover {
+  color: var(--text-hover);
+}
+body header form main > div:nth-of-type(4) div {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 1rem;
+  column-gap: 0.5rem;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  border-radius: 0 0 3px 3px;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.75);
+  clip-path: inset(0px 0px 200px 0px);
+  transition: clip-path 150ms ease-out;
+  pointer-events: none;
+}
+body header form main > div:nth-of-type(4) div label {
+  white-space: nowrap;
+}
+body header form main > div:nth-of-type(4) div span {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
+  color: var(--text);
+}
+body header form main > div:nth-of-type(4) div span:hover > :where(button, input) {
+  color: var(--text-hover);
+  border: 1px solid var(--text-hover);
+}
+body header form main > div:nth-of-type(4) div span button {
+  inline-size: 29px;
+  border: 1px solid var(--text);
+  cursor: pointer;
+}
+body header form main > div:nth-of-type(4) div span input {
+  inline-size: 58px;
+  text-align: center;
+  border: 1px solid var(--text);
+}
+body header form > button {
+  border: 0;
+  background-color: var(--text-hover);
+  color: whitesmoke;
+  padding-inline: 1rem;
+  cursor: pointer;
+}
+body header form > button:hover {
+  transform: translate(-1px, 0);
+}
+body header form > button:last-of-type::after {
+  margin-inline-start: 0.5rem;
+  font-family: "uicons-regular-rounded";
+  content: "\f52e";
+  vertical-align: middle;
+}
+body section {
+  --column-width: calc((100vw - 10rem) / 2);
+  --gap: 2rem;
+  inline-size: 100vw;
+  padding: 12rem 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, calc((var(--column-width) - var(--gap) / 2) * 2 / 3));
+  gap: var(--gap);
+  background-color: #151415;
+}
+@media screen and (max-width: 900px) {
+  body section {
+    --column-width: 400px;
+    gap: 0.8rem;
+    padding: 2rem auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  body section {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0;
+    padding: 1rem 0.5rem;
+  }
+}
+body section figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  perspective: 500px;
+}
+body section figure:first-of-type {
+  perspective: 900px;
+  grid-row-start: span 3;
+}
+body section figure:first-of-type img {
+  inline-size: calc(var(--column-width) - var(--gap) / 2);
+  block-size: calc((var(--column-width) - var(--gap) / 2) * 2 + 4rem);
+}
+@media screen and (max-width: 500px) {
+  body section figure:first-of-type {
+    display: none;
+  }
+}
+body section figure:nth-of-type(2), body section figure:nth-of-type(3), body section figure:nth-of-type(4) {
+  grid-column-start: 2;
+}
+body section figure:nth-of-type(2) img, body section figure:nth-of-type(3) img, body section figure:nth-of-type(4) img {
+  inline-size: calc(var(--column-width) - var(--gap) / 2);
+  block-size: calc(var(--column-width) * 2 / 3);
+}
+@media screen and (max-width: 500px) {
+  body section figure:nth-of-type(2), body section figure:nth-of-type(3), body section figure:nth-of-type(4) {
+    grid-column-start: 1;
+  }
+}
+body section figure:nth-of-type(5) {
+  grid-column-start: span 2;
+  grid-row-start: 4;
+}
+body section figure:nth-of-type(5) img {
+  inline-size: calc(2 * var(--column-width));
+  block-size: calc(var(--column-width));
+}
+@media screen and (max-width: 500px) {
+  body section figure:nth-of-type(5) {
+    display: none;
+  }
+}
+body section figure img {
+  transform-origin: center;
+}
+body footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem 2rem 0.5rem;
+  background-color: #222122;
+}
+body footer figure {
+  direction: ltr;
+  display: flex;
+  gap: 0.5rem;
+  justify-items: flex-start;
+  align-items: flex-end;
+  opacity: 0.8;
+}
+body footer figure figcaption {
+  color: whitesmoke;
+}
+body footer address {
+  font-style: normal;
+}
+body footer address ul {
+  display: flex;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 500px) {
+  body footer address ul {
+    flex-direction: column;
+  }
+}
+body footer address ul li {
+  list-style: none;
+}
+body footer address ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 300px;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: #9cef96;
+  font-size: larger;
+  font-family: monospace;
+  transform: translateY(0);
+  transition: all 100ms ease;
+  position: relative;
+}
+body footer address ul li a:hover {
+  background-color: #8cd887;
+}
+body footer address ul li a:hover::before {
+  left: 20px;
+}
+body footer address ul li a::after {
+  content: "@mahdihadiam";
+  direction: ltr;
+  position: absolute;
+  bottom: 15px;
+  font-size: small;
+}
+body footer address ul li a::before {
+  font-family: "uicons-regular-rounded";
+  content: "\f169";
+  vertical-align: middle;
+  position: relative;
+  left: 10px;
+  font-size: 1.6rem;
+  transition: left 100ms ease;
+}
+body footer address ul li:last-child a {
+  background-color: #b4bffc;
+}
+body footer address ul li:last-child a:hover {
+  background-color: #9ba4da;
+}
+body footer address ul li:last-child a::after {
+  content: "@mehrankhaksar";
+}

@@ -69,6 +69,7 @@ body {
 
     background-image: url("/assets/background.png");
     background-size: cover;
+    background-repeat: no-repeat;
 
     nav {
       block-size: 3rem;
@@ -468,6 +469,10 @@ body {
       padding: 1rem 0.5rem;
     }
 
+    @media (prefers-color-scheme: light) {
+      background-color: #e8e2de;
+    }
+
     figure {
       display: flex;
       justify-content: center;
@@ -534,16 +539,33 @@ body {
     padding: 1rem 0.5rem 2rem 0.5rem;
     background-color: #222122;
 
+    @media (prefers-color-scheme: light) {
+      background-color: #f3eeeb;
+    }
+
     figure {
       direction: ltr;
       display: flex;
       gap: 0.5rem;
       justify-items: flex-start;
-      align-items: flex-end;
+      align-items: center;
       opacity: 0.8;
+
+      svg {
+        fill: #f3eeeb;
+
+        @media (prefers-color-scheme: light) {
+          fill: var(--text);
+        }
+      }
 
       figcaption {
         color: whitesmoke;
+        text-align: left;
+
+        @media (prefers-color-scheme: light) {
+          color: var(--text);
+        }
       }
     }
 

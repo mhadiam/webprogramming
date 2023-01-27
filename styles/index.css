@@ -61,6 +61,7 @@ body header {
   position: relative;
   background-image: url("/assets/background.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 body header nav {
   block-size: 3rem;
@@ -373,6 +374,11 @@ body section {
     padding: 1rem 0.5rem;
   }
 }
+@media (prefers-color-scheme: light) {
+  body section {
+    background-color: #e8e2de;
+  }
+}
 body section figure {
   display: flex;
   justify-content: center;
@@ -431,16 +437,35 @@ body footer {
   padding: 1rem 0.5rem 2rem 0.5rem;
   background-color: #222122;
 }
+@media (prefers-color-scheme: light) {
+  body footer {
+    background-color: #f3eeeb;
+  }
+}
 body footer figure {
   direction: ltr;
   display: flex;
   gap: 0.5rem;
   justify-items: flex-start;
-  align-items: flex-end;
+  align-items: center;
   opacity: 0.8;
+}
+body footer figure svg {
+  fill: #f3eeeb;
+}
+@media (prefers-color-scheme: light) {
+  body footer figure svg {
+    fill: var(--text);
+  }
 }
 body footer figure figcaption {
   color: whitesmoke;
+  text-align: left;
+}
+@media (prefers-color-scheme: light) {
+  body footer figure figcaption {
+    color: var(--text);
+  }
 }
 body footer address {
   font-style: normal;

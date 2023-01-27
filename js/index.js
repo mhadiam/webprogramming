@@ -236,109 +236,109 @@ swap_dest_button.addEventListener("click", (e) => {
   window.requestAnimationFrame(step);
 });
 
-from_input.addEventListener("input", () => {
-  from_results.innerHTML = "";
-  let results = [];
-  if (from_input.value.length >= 1) {
-    search_results.forEach((e) => {
-      if (
-        (to_input.value.length === 0 && e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.from)) ||
-        (to_input.value.length > 0 &&
-          e.from.includes(from_input.value) &&
-          e.to.includes(to_input.value) &&
-          !results.some((li) => li.innerText === e.from))
-      ) {
-        from_results.innerHTML = "";
-        let li = document.createElement("li");
-        li.innerText = e.from;
-        li.addEventListener("click", () => {
-          from_input.value = e.from;
-          from_results.innerHTML = "";
-        });
-        results.push(li);
-      }
-    });
-  } else {
-    search_results.forEach((e) => {
-      if (to_input.value.length === 0) {
-        if (!results.some((li) => li.innerText === e.from)) {
-          from_results.innerHTML = "";
-          let li = document.createElement("li");
-          li.innerText = e.from;
-          li.addEventListener("click", () => {
-            from_input.value = e.from;
-            from_results.innerHTML = "";
-          });
-          results.push(li);
-        }
-      } else {
-        if (e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.from)) {
-          from_results.innerHTML = "";
-          let li = document.createElement("li");
-          li.innerText = e.from;
-          li.addEventListener("click", () => {
-            from_input.value = e.from;
-            from_results.innerHTML = "";
-          });
-          results.push(li);
-        }
-      }
-    });
-  }
-  results.forEach((li) => from_results.appendChild(li));
-});
+// from_input.addEventListener("input", () => {
+//   from_results.innerHTML = "";
+//   let results = [];
+//   if (from_input.value.length >= 1) {
+//     search_results.forEach((e) => {
+//       if (
+//         (to_input.value.length === 0 && e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.from)) ||
+//         (to_input.value.length > 0 &&
+//           e.from.includes(from_input.value) &&
+//           e.to.includes(to_input.value) &&
+//           !results.some((li) => li.innerText === e.from))
+//       ) {
+//         from_results.innerHTML = "";
+//         let li = document.createElement("li");
+//         li.innerText = e.from;
+//         li.addEventListener("click", () => {
+//           from_input.value = e.from;
+//           from_results.innerHTML = "";
+//         });
+//         results.push(li);
+//       }
+//     });
+//   } else {
+//     search_results.forEach((e) => {
+//       if (to_input.value.length === 0) {
+//         if (!results.some((li) => li.innerText === e.from)) {
+//           from_results.innerHTML = "";
+//           let li = document.createElement("li");
+//           li.innerText = e.from;
+//           li.addEventListener("click", () => {
+//             from_input.value = e.from;
+//             from_results.innerHTML = "";
+//           });
+//           results.push(li);
+//         }
+//       } else {
+//         if (e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.from)) {
+//           from_results.innerHTML = "";
+//           let li = document.createElement("li");
+//           li.innerText = e.from;
+//           li.addEventListener("click", () => {
+//             from_input.value = e.from;
+//             from_results.innerHTML = "";
+//           });
+//           results.push(li);
+//         }
+//       }
+//     });
+//   }
+//   results.forEach((li) => from_results.appendChild(li));
+// });
 
-to_input.addEventListener("input", () => {
-  to_results.innerHTML = "";
-  let results = [];
-  if (to_input.value.length >= 1) {
-    search_results.forEach((e) => {
-      if (
-        (from_input.value.length === 0 && e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.to)) ||
-        (from_input.value.length > 0 &&
-          e.to.includes(to_input.value) &&
-          e.from.includes(from_input.value) &&
-          !results.some((li) => li.innerText === e.to))
-      ) {
-        to_results.innerHTML = "";
-        let li = document.createElement("li");
-        li.innerText = e.to;
-        li.addEventListener("click", () => {
-          to_input.value = e.to;
-          to_results.innerHTML = "";
-        });
-        results.push(li);
-      }
-    });
-  } else {
-    search_results.forEach((e) => {
-      if (from_input.value.length === 0) {
-        if (!results.some((li) => li.innerText === e.to)) {
-          to_results.innerHTML = "";
-          let li = document.createElement("li");
-          li.innerText = e.to;
-          li.addEventListener("click", () => {
-            to_input.value = e.to;
-            to_results.innerHTML = "";
-          });
-          results.push(li);
-        }
-      } else {
-        if (e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.to)) {
-          from_results.innerHTML = "";
-          let li = document.createElement("li");
-          li.innerText = e.from;
-          li.addEventListener("click", () => {
-            to_input.value = e.from;
-            to_results.innerHTML = "";
-          });
-          results.push(li);
-        }
-      }
-    });
-  }
-  results.forEach((li) => to_results.appendChild(li));
-});
+// to_input.addEventListener("input", () => {
+//   to_results.innerHTML = "";
+//   let results = [];
+//   if (to_input.value.length >= 1) {
+//     search_results.forEach((e) => {
+//       if (
+//         (from_input.value.length === 0 && e.to.includes(to_input.value) && !results.some((li) => li.innerText === e.to)) ||
+//         (from_input.value.length > 0 &&
+//           e.to.includes(to_input.value) &&
+//           e.from.includes(from_input.value) &&
+//           !results.some((li) => li.innerText === e.to))
+//       ) {
+//         to_results.innerHTML = "";
+//         let li = document.createElement("li");
+//         li.innerText = e.to;
+//         li.addEventListener("click", () => {
+//           to_input.value = e.to;
+//           to_results.innerHTML = "";
+//         });
+//         results.push(li);
+//       }
+//     });
+//   } else {
+//     search_results.forEach((e) => {
+//       if (from_input.value.length === 0) {
+//         if (!results.some((li) => li.innerText === e.to)) {
+//           to_results.innerHTML = "";
+//           let li = document.createElement("li");
+//           li.innerText = e.to;
+//           li.addEventListener("click", () => {
+//             to_input.value = e.to;
+//             to_results.innerHTML = "";
+//           });
+//           results.push(li);
+//         }
+//       } else {
+//         if (e.from.includes(from_input.value) && !results.some((li) => li.innerText === e.to)) {
+//           from_results.innerHTML = "";
+//           let li = document.createElement("li");
+//           li.innerText = e.from;
+//           li.addEventListener("click", () => {
+//             to_input.value = e.from;
+//             to_results.innerHTML = "";
+//           });
+//           results.push(li);
+//         }
+//       }
+//     });
+//   }
+//   results.forEach((li) => to_results.appendChild(li));
+// });
 
 trip_output.addEventListener("click", () => {
   let y_offset = 0;
@@ -648,4 +648,20 @@ cards.forEach((figure) => {
       }
     }, 10);
   });
+});
+
+document.querySelector("form>button").addEventListener("click", (e) => {
+  e.preventDefault();
+  let form = e.currentTarget.parentElement;
+  const url = new URL("http://127.0.0.1:5500/flights.html");
+  url.searchParams.set("from", form.from.value);
+  url.searchParams.set("to", form.to.value);
+  url.searchParams.set("trip", form.trip.value);
+  url.searchParams.set("depart", form.date.value.split(" ")[0]);
+  if (form.trip.value === "return") url.searchParams.set("return", form.date.value.split(" ")[1]);
+  url.searchParams.set("adult", form.adults.dataset.value);
+  url.searchParams.set("child", form.child.dataset.value);
+  url.searchParams.set("infant", form.infant.dataset.value);
+  window.location.href = url.href;
+  console.log(url);
 });

@@ -127,30 +127,38 @@ function draw_calendar(month) {
   calendar_days = [...document.querySelectorAll("header>form>main>div:nth-of-type(3)>div>div>span")].splice(7);
 
   const current_month_days = calendar.filter((e) => e.month === month);
-  for (let i = 0; i < current_month_days[0].week_day + 1 - current_month_days[0].month_day; i++) {
+  let first_day_of_month = (14 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
+  for (let i = 0; i < first_day_of_month; i++) {
     calendar_days[i].className = "empty";
     calendar_days[i].textContent = "";
   }
 
-  for (let i = current_month_days[0].week_day + 1 - current_month_days[0].month_day; i < current_month_days[0].week_day; i++) {
+  for (let i = first_day_of_month, j = 1; j < current_month_days[0].month_day; i++, j++) {
     calendar_days[i].className = "past";
-    calendar_days[i].textContent = (i + 1).toLocaleString("fa-IR");
+    calendar_days[i].textContent = j.toLocaleString("fa-IR");
   }
 
-  for (let i = current_month_days.length + current_month_days[0].week_day; i < calendar_days.length; i++) {
+  for (
+    let i = current_month_days[current_month_days.length - 1].month_day + first_day_of_month;
+    i < calendar_days.length;
+    i++
+  ) {
     calendar_days[i].className = "empty";
     calendar_days[i].textContent = "";
   }
 
-  for (let i = current_month_days[0].week_day; i < current_month_days.length + current_month_days[0].week_day; i++) {
-    calendar_days[i].textContent = current_month_days[i - current_month_days[0].week_day].month_day.toLocaleString("fa-IR");
+  for (
+    let i = current_month_days[0].month_day + first_day_of_month - 1, j = current_month_days[0].month_day;
+    i < current_month_days[current_month_days.length - 1].month_day + first_day_of_month - 1;
+    i++, j++
+  ) {
+    calendar_days[i].textContent = j.toLocaleString("fa-IR");
 
-    if (start !== null && current_month_days[i - current_month_days[0].week_day].value === start)
-      calendar_days[i].className = "start";
+    if (start !== null && current_month_days[j - 1].value === start) calendar_days[i].className = "start";
 
     calendar_days[i].addEventListener("click", ({ currentTarget: span }) => {
       if (start === null) {
-        start = current_month_days[i - current_month_days[0].week_day].value;
+        start = current_month_days[j - 1].value;
         span.className = "start";
 
         if (trip_input.value === "oneway") {
@@ -159,8 +167,8 @@ function draw_calendar(month) {
           document.querySelector("header>form>main>div:nth-of-type(3)>div").removeAttribute("style");
         }
       } else {
-        if (current_month_days[i - current_month_days[0].week_day].value > start) {
-          end = current_month_days[i - current_month_days[0].week_day].value;
+        if (current_month_days[j - 1].value > start) {
+          end = current_month_days[j - 1].value;
           date_output.innerHTML = `${new Date(start).toLocaleDateString("fa-IR", {
             year: "numeric",
             month: "long",
@@ -174,22 +182,17 @@ function draw_calendar(month) {
     });
 
     calendar_days[i].addEventListener("mouseover", () => {
-      if (start !== null && current_month_days[i - current_month_days[0].week_day].value >= start) {
-        for (let j = current_month_days[0].week_day; j < current_month_days.length + current_month_days[0].week_day; j++) {
-          if (current_month_days[j - current_month_days[0].week_day].value > start)
-            if (
-              current_month_days[j - current_month_days[0].week_day].value <
-              current_month_days[i - current_month_days[0].week_day].value
-            )
+      if (start !== null && current_month_days[j - 1].value >= start) {
+        for (let k = 0; k < current_month_days[0].month_day; k++) {
+          if (current_month_days[k].value > start)
+            if (current_month_days[j - current_month_days[0].week_day].value < current_month_days[j - 1].value)
               calendar_days[j].className = "include";
-            else if (
-              current_month_days[j - current_month_days[0].week_day].value ===
-              current_month_days[i - current_month_days[0].week_day].value
-            )
+            else if (current_month_days[j - current_month_days[0].week_day].value === current_month_days[j - 1].value)
               calendar_days[j].className = "end";
             else if (calendar_days[j].className === "include" || calendar_days[j].className === "end")
               calendar_days[j].removeAttribute("class");
         }
+      } else {
       }
     });
   }

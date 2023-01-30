@@ -1,7 +1,6 @@
 # Web Programming Fall 1401
 
-## Participants ↓
+## Participants
 
-- Mahdi Hadi 98106145
-- Mehran Khaksar 98170798
-- Nima Monaghesh 99102315
+- Mahdi Hadi 
++ Mehran Khaksar 

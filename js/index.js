@@ -127,7 +127,8 @@ function draw_calendar(month) {
   calendar_days = [...document.querySelectorAll("header>form>main>div:nth-of-type(3)>div>div>span")].splice(7);
 
   const current_month_days = calendar.filter((e) => e.month === month);
-  let first_day_of_month = (14 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
+  const first_day_of_month = (14 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
+  console.log(first_day_of_month);
   for (let i = 0; i < first_day_of_month; i++) {
     calendar_days[i].className = "empty";
     calendar_days[i].textContent = "";
@@ -147,18 +148,13 @@ function draw_calendar(month) {
     calendar_days[i].textContent = "";
   }
 
-  for (
-    let i = current_month_days[0].month_day + first_day_of_month - 1, j = current_month_days[0].month_day;
-    i < current_month_days[current_month_days.length - 1].month_day + first_day_of_month - 1;
-    i++, j++
-  ) {
-    calendar_days[i].textContent = j.toLocaleString("fa-IR");
-
-    if (start !== null && current_month_days[j - 1].value === start) calendar_days[i].className = "start";
+  for (let i = current_month_days[0].month_day + first_day_of_month - 1, j = 0; j < current_month_days.length; i++, j++) {
+    calendar_days[i].textContent = (i - first_day_of_month + 1).toLocaleString("fa-IR");
+    if (start !== null && current_month_days[j].value === start) calendar_days[i].className = "start";
 
     calendar_days[i].addEventListener("click", ({ currentTarget: span }) => {
       if (start === null) {
-        start = current_month_days[j - 1].value;
+        start = current_month_days[j].value;
         span.className = "start";
 
         if (trip_input.value === "oneway") {
@@ -167,8 +163,8 @@ function draw_calendar(month) {
           document.querySelector("header>form>main>div:nth-of-type(3)>div").removeAttribute("style");
         }
       } else {
-        if (current_month_days[j - 1].value > start) {
-          end = current_month_days[j - 1].value;
+        if (current_month_days[j].value > start) {
+          end = current_month_days[j].value;
           date_output.innerHTML = `${new Date(start).toLocaleDateString("fa-IR", {
             year: "numeric",
             month: "long",
@@ -182,17 +178,14 @@ function draw_calendar(month) {
     });
 
     calendar_days[i].addEventListener("mouseover", () => {
-      if (start !== null && current_month_days[j - 1].value >= start) {
-        for (let k = 0; k < current_month_days[0].month_day; k++) {
-          if (current_month_days[k].value > start)
-            if (current_month_days[j - current_month_days[0].week_day].value < current_month_days[j - 1].value)
-              calendar_days[j].className = "include";
-            else if (current_month_days[j - current_month_days[0].week_day].value === current_month_days[j - 1].value)
-              calendar_days[j].className = "end";
-            else if (calendar_days[j].className === "include" || calendar_days[j].className === "end")
-              calendar_days[j].removeAttribute("class");
+      if (start !== null && current_month_days[j].value >= start) {
+        for (let k = current_month_days[0].month_day + first_day_of_month - 1, l = 0; l < current_month_days.length; k++, l++) {
+          if (current_month_days[l].value > start)
+            if (current_month_days[l].value < current_month_days[j].value) calendar_days[k].className = "include";
+            else if (current_month_days[l].value === current_month_days[j].value) calendar_days[k].className = "end";
+            else if (calendar_days[k].className === "include" || calendar_days[k].className === "end")
+              calendar_days[k].removeAttribute("class");
         }
-      } else {
       }
     });
   }
@@ -209,7 +202,9 @@ document.body.addEventListener("click", () => {
 
 document.querySelector("header").style = `background-position: center ${window.scrollY}px`;
 document.addEventListener("scroll", () => {
-  document.querySelector("header").style = `background-position: center ${window.scrollY}px`;
+  if (window.scrollY > window.innerWidth * 0.4 * 0.1 && window.scrollY < window.innerWidth * 0.41)
+    document.querySelector("header").style = `background-position: center ${window.scrollY - window.innerWidth * 0.4 * 0.1}px`;
+  else document.querySelector("header").style = `background-position: center 0`;
   if (window.scrollY > window.innerWidth * 0.4) {
     document.querySelector("header>form>main>div:nth-of-type(3)>div").removeAttribute("style");
     document.querySelector("header>form>main>div:nth-of-type(4)>div").removeAttribute("style");

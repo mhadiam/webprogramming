@@ -5,7 +5,7 @@
 
 ## Setup with npm
 ```js
-//install sass (for unix-based users sudo must be provided)
+//install sass (for unix-based users root access -sudo- must be provided)
 $ npm install -g sass
 ```
 

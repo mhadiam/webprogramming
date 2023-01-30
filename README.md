@@ -1,6 +1,4 @@
-# Web Programming Fall 1401
-
 ## Participants
 
-- Mahdi Hadi @mahdihadiam
-+ Mehran Khaksar 
+- Mahdi Hadi [telegram: mahdihadiam](https://t.me/mahdihadiam)
++ Mehran Khaksar [telegram: mehrankhaksar](https://t.me/mehrankhaksar)

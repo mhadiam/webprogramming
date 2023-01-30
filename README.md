@@ -14,4 +14,4 @@ $ npm install -g sass
 $ sass --no-source-map --watch .
 ```
 
-Then open index.html in browser. I recommend using live server extension in vscode
+Then open *index.html* in browser. I recommend using live server extension in vscode

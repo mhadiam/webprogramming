@@ -3,7 +3,7 @@
 - Mahdi Hadi [mahdihadiam](https://t.me/mahdihadiam)
 + Mehran Khaksar [mehrankhaksar](https://t.me/mehrankhaksar)
 
-## Setup using npm
+## Setup with npm
 ```js
 //install sass (for unix-based users sudo must be provided)
 $ npm install -g sass

@@ -128,7 +128,6 @@ function draw_calendar(month) {
 
   const current_month_days = calendar.filter((e) => e.month === month);
   const first_day_of_month = (14 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
-  console.log(first_day_of_month);
   for (let i = 0; i < first_day_of_month; i++) {
     calendar_days[i].className = "empty";
     calendar_days[i].textContent = "";

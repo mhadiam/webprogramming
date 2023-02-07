@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  scrollbar-width: 0;
+  font-family: "Vazirmatn";
+  direction: rtl;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+input,
+select,
+textarea,
+button,
+figure {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  border: none;
+  font: inherit;
+}
+
+label {
+  pointer-events: none;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  transition: transform 150ms ease;
+}
+button:hover {
+  transform: translateY(2px);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-hover);
+}
+
+body {
+  --back-color: #e8e2de;
+  --text: #48474a;
+  --text-hover: #1a191a;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #222122;
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f3eeeb;
+  }
+}

@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
+@import url(global.css);
+h1 {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: baseline;
+  margin-block: 3rem 6rem;
+  font-size: 3rem;
+  color: var(--back-color);
+  font-weight: 300;
+}
+@media (prefers-color-scheme: light) {
+  h1 {
+    color: var(--text-hover);
+  }
+}
+h1 span {
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+h1 span:last-of-type {
+  scale: 0.7;
+  opacity: 0.75;
+}
+h1 span:hover {
+  opacity: 1 !important;
+}
+h1.register span:first-of-type {
+  scale: 0.7;
+  opacity: 0.75;
+}
+h1.register span:last-of-type {
+  scale: 1;
+  opacity: 1;
+}
+
+form {
+  inline-size: 400px;
+  margin: auto;
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 300;
+}
+form input {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 4px 4px;
+  border-block-start: none;
+  color: white;
+}
+@media (prefers-color-scheme: light) {
+  form input {
+    color: var(--text-hover);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-block-start: none;
+  }
+}
+form input::-webkit-outer-spin-button, form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+form input[type=number] {
+  -moz-appearance: textfield;
+}
+form input:disabled {
+  opacity: 0.3;
+}
+form button {
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: var(--back-color);
+  color: var(--text-hover);
+}
+@media (prefers-color-scheme: light) {
+  form button {
+    color: white;
+    background-color: var(--text-hover);
+  }
+}

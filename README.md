@@ -4,7 +4,7 @@
 
 * Mehran Khaksar [mehrankhaksar](https://t.me/mehrankhaksar)
 
-## Setup with npm
+## Setup
 
 1. Open **client** folder in vscode
 

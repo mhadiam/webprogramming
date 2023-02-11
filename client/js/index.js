@@ -656,16 +656,36 @@ cards.forEach((figure) => {
 
 document.querySelector("form>button").addEventListener("click", (e) => {
   e.preventDefault();
-  let form = e.currentTarget.parentElement;
-  const url = new URL("http://127.0.0.1:5500/flights.html");
-  url.searchParams.set("from", form.from.value);
-  url.searchParams.set("to", form.to.value);
-  url.searchParams.set("trip", form.trip.value);
-  url.searchParams.set("depart", form.date.value.split(" ")[0]);
-  if (form.trip.value === "return") url.searchParams.set("return", form.date.value.split(" ")[1]);
-  url.searchParams.set("adult", form.adults.dataset.value);
-  url.searchParams.set("child", form.child.dataset.value);
-  url.searchParams.set("infant", form.infant.dataset.value);
-  window.location.href = url.href;
-  console.log(url);
+
+  fetch(`http://127.0.0.1:3001/signout`, {
+    method: "POST",
+    credentials: "include",
+  }).then((res) => {
+    if (res.ok) {
+      localStorage.removeItem("name");
+      localStorage.removeItem("lastname");
+      location.href = "/";
+    } else {
+      if (res.status === 404) {
+        alert("کاربر وجود ندارد!");
+      } else if (res.status === 500) {
+        alert("مشکلی در سرور وجود دارد!");
+      } else if (res.status === 401) {
+        alert("توکن نامعتبر است!");
+      }
+    }
+  });
+
+  // let form = e.currentTarget.parentElement;
+  // const url = new URL("http://127.0.0.1:5500/flights.html");
+  // url.searchParams.set("from", form.from.value);
+  // url.searchParams.set("to", form.to.value);
+  // url.searchParams.set("trip", form.trip.value);
+  // url.searchParams.set("depart", form.date.value.split(" ")[0]);
+  // if (form.trip.value === "return") url.searchParams.set("return", form.date.value.split(" ")[1]);
+  // url.searchParams.set("adult", form.adults.dataset.value);
+  // url.searchParams.set("child", form.child.dataset.value);
+  // url.searchParams.set("infant", form.infant.dataset.value);
+  // window.location.href = url.href;
+  // console.log(url);
 });

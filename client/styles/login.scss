@@ -59,7 +59,12 @@ form {
   font-size: 1rem;
   font-weight: 300;
 
+  div {
+    position: relative;
+  }
+
   input:not([type="radio"]) {
+    inline-size: 100%;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 0.5rem 1rem;
     border-radius: 0 0 4px 4px;
@@ -82,6 +87,30 @@ form {
     &[type="number"] {
       -moz-appearance: textfield;
     }
+
+    & + label {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      opacity: 0.5;
+      transition: all 100ms ease;
+      transform-origin: right;
+      @media (prefers-color-scheme: light) {
+        color: var(--text-hover);
+      }
+    }
+
+    &:where(&:focus, &:valid) + label {
+      top: 0;
+      transform: scale(0.8) translateY(-100%);
+    }
+  }
+
+  input[name="phone"],
+  input[name="email"] {
+    direction: ltr;
   }
 
   input:disabled {
@@ -93,6 +122,8 @@ form {
 
   fieldset {
     border: none;
+    padding: 0;
+    margin: 0;
     display: grid;
     grid-template-columns: 1fr 3fr;
 

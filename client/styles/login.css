@@ -47,7 +47,11 @@ form {
   font-size: 1rem;
   font-weight: 300;
 }
+form div {
+  position: relative;
+}
 form input:not([type=radio]) {
+  inline-size: 100%;
   border: 1px solid rgba(255, 255, 255, 0.5);
   padding: 0.5rem 1rem;
   border-radius: 0 0 4px 4px;
@@ -68,6 +72,29 @@ form input:not([type=radio])::-webkit-outer-spin-button, form input:not([type=ra
 form input:not([type=radio])[type=number] {
   -moz-appearance: textfield;
 }
+form input:not([type=radio]) + label {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  opacity: 0.5;
+  transition: all 100ms ease;
+  transform-origin: right;
+}
+@media (prefers-color-scheme: light) {
+  form input:not([type=radio]) + label {
+    color: var(--text-hover);
+  }
+}
+form input:not([type=radio]):where(form input:not([type=radio]):focus, form input:not([type=radio]):valid) + label {
+  top: 0;
+  transform: scale(0.8) translateY(-100%);
+}
+form input[name=phone],
+form input[name=email] {
+  direction: ltr;
+}
 form input:disabled {
   opacity: 0.3;
 }
@@ -76,6 +103,8 @@ form input:disabled + label {
 }
 form fieldset {
   border: none;
+  padding: 0;
+  margin: 0;
   display: grid;
   grid-template-columns: 1fr 3fr;
 }

@@ -18,5 +18,17 @@ $ npm install -g sass
 $ sass --no-source-map --watch .
 ```
 
-2. Lunch client by opening _index.html_ in browser. I recommend using live server extension in vscode
-3. Run server services
+Lunch client by opening _index.html_ in browser. I recommend using live server extension in vscode
+
+2. Run server services
+1. Open **auth** in vscode
+
+```go
+$ go run .
+```
+
+2. Open **api** in vscode
+
+```js
+$ node index.js
+```

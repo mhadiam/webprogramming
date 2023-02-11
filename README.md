@@ -20,14 +20,14 @@ $ sass --no-source-map --watch .
 
 Lunch client by opening _index.html_ in browser. I recommend using live server extension in vscode
 
-2. Run server services
-1. Open **auth** in vscode
+
+3. Open **auth** in vscode
 
 ```go
 $ go run .
 ```
 
-2. Open **api** in vscode
+4. Open **api** in vscode
 
 ```js
 $ node index.js

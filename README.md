@@ -6,7 +6,7 @@
 
 ## Setup with npm
 
-1. Open _client_ folder in vscode
+1. Open **client** folder in vscode
 
 ```js
 //install sass (for unix-based users root access -sudo- must be provided)

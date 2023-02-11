@@ -8,18 +8,19 @@
 
 1. Open **client** folder in vscode
 
-```js
-//install sass (for unix-based users root access -sudo- must be provided)
+install sass (for unix-based users root access -sudo- must be provided)
+
+```
 $ npm install -g sass
 ```
 
-```js
-//start sass compiling
+start sass compiling
+
+```
 $ sass --no-source-map --watch .
 ```
 
 Lunch client by opening _index.html_ in browser. I recommend using live server extension in vscode
-
 
 3. Open **auth** in vscode
 
@@ -29,6 +30,6 @@ $ go run .
 
 4. Open **api** in vscode
 
-```js
+```
 $ node index.js
 ```

@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
 @import url(global.css);
 
 header {
@@ -42,12 +39,6 @@ header {
         svg {
           fill: var(--text-hover);
         }
-      }
-
-      &:last-of-type::before {
-        font-family: "uicons-regular-straight";
-        content: "\f659";
-        vertical-align: middle;
       }
 
       svg {
@@ -130,12 +121,6 @@ header {
             position: absolute;
             right: 16ch;
             cursor: pointer;
-
-            &::before {
-              font-family: "uicons-regular-straight";
-              content: "\f34e";
-              vertical-align: middle;
-            }
 
             &:hover {
               color: var(--text-hover);
@@ -378,11 +363,8 @@ header {
         transform: translate(-1px, 0);
       }
 
-      &:last-of-type::after {
-        margin-inline-start: 0.5rem;
-        font-family: "uicons-regular-rounded";
-        content: "\f52e";
-        vertical-align: middle;
+      &:last-of-type::before {
+        margin-inline-end: 0.5rem;
       }
     }
   }
@@ -560,9 +542,6 @@ footer {
           }
 
           &::before {
-            font-family: "uicons-regular-rounded";
-            content: "\f169";
-            vertical-align: middle;
             position: relative;
             left: 10px;
             font-size: 1.6rem;

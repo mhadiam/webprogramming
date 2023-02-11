@@ -9,7 +9,7 @@ h1 {
   justify-content: center;
   align-items: baseline;
 
-  margin-block: 3rem 6rem;
+  margin-block: 2rem 4rem;
 
   font-size: 3rem;
   color: var(--back-color);
@@ -51,7 +51,7 @@ form {
 
   margin: auto;
 
-  display: flex;
+  display: grid;
   align-items: stretch;
   gap: 2rem;
   flex-direction: column;
@@ -59,7 +59,7 @@ form {
   font-size: 1rem;
   font-weight: 300;
 
-  input {
+  input:not([type="radio"]) {
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 0.5rem 1rem;
     border-radius: 0 0 4px 4px;
@@ -82,9 +82,27 @@ form {
     &[type="number"] {
       -moz-appearance: textfield;
     }
+  }
 
-    &:disabled {
+  input:disabled {
+    opacity: 0.3;
+    & + label {
       opacity: 0.3;
+    }
+  }
+
+  fieldset {
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    @media (prefers-color-scheme: dark) {
+      color: white;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
     }
   }
 

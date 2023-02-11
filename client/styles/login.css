@@ -7,7 +7,7 @@ h1 {
   gap: 0.5rem;
   justify-content: center;
   align-items: baseline;
-  margin-block: 3rem 6rem;
+  margin-block: 2rem 4rem;
   font-size: 3rem;
   color: var(--back-color);
   font-weight: 300;
@@ -40,14 +40,14 @@ h1.register span:last-of-type {
 form {
   inline-size: 400px;
   margin: auto;
-  display: flex;
+  display: grid;
   align-items: stretch;
   gap: 2rem;
   flex-direction: column;
   font-size: 1rem;
   font-weight: 300;
 }
-form input {
+form input:not([type=radio]) {
   border: 1px solid rgba(255, 255, 255, 0.5);
   padding: 0.5rem 1rem;
   border-radius: 0 0 4px 4px;
@@ -55,21 +55,38 @@ form input {
   color: white;
 }
 @media (prefers-color-scheme: light) {
-  form input {
+  form input:not([type=radio]) {
     color: var(--text-hover);
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-block-start: none;
   }
 }
-form input::-webkit-outer-spin-button, form input::-webkit-inner-spin-button {
+form input:not([type=radio])::-webkit-outer-spin-button, form input:not([type=radio])::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-form input[type=number] {
+form input:not([type=radio])[type=number] {
   -moz-appearance: textfield;
 }
 form input:disabled {
   opacity: 0.3;
+}
+form input:disabled + label {
+  opacity: 0.3;
+}
+form fieldset {
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+@media (prefers-color-scheme: dark) {
+  form fieldset {
+    color: white;
+  }
+}
+form fieldset div {
+  display: flex;
+  align-items: center;
 }
 form button {
   border-radius: 4px;

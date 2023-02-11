@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Goghnoos</title>
 
+    <link rel="stylesheet" href="/assets/iconfont/rounded/uicons-regular-rounded.css" />
+    <link rel="stylesheet" href="/assets/iconfont/straight/uicons-regular-straight.css" />
+
     <script src="/js/login.js" defer></script>
 
     <link rel="stylesheet" href="/styles/login.css" />
@@ -18,11 +21,21 @@
     </h1>
 
     <form autocomplete="off" novalidate>
-      <input type="email" name="emal" placeholder="ایمیل" required />
+      <input type="email" name="email" placeholder="ایمیل" required />
       <input type="password" name="password" placeholder="رمز عبور" minlength="4" required />
       <input type="text" name="name" placeholder="نام" class="registeronly" disabled required />
       <input type="text" name="lastname" placeholder="نام خانوادگی" class="registeronly" disabled required />
-      <input type="number" name="passport" placeholder="شماره پاسپورت" class="registeronly" disabled required />
+      <input type="number" inputmode="numeric" name="phone" placeholder="شماره تلفن" class="registeronly" disabled required />
+      <fieldset>
+        <div>
+          <input type="radio" name="gender" value="M" id="male" class="registeronly" disabled required />
+          <label for="male">مرد</label>
+        </div>
+        <div>
+          <input type="radio" name="gender" value="F" id="female" class="registeronly" disabled required />
+          <label for="female">زن</label>
+        </div>
+      </fieldset>
 
       <button type="submit">ورود</button>
     </form>

@@ -20,6 +20,13 @@ const infant = document.querySelector("header>form>main>div:nth-of-type(4)>div>s
 
 const cards = document.querySelectorAll("section figure");
 
+if (localStorage.getItem("name") !== null) {
+  document.querySelector("header>nav>a:last-of-type").textContent = ` ${localStorage.getItem("name")} ${localStorage.getItem(
+    "lastname"
+  )} `;
+  document.querySelector("header>nav>a:last-of-type").setAttribute("href", "/profile");
+}
+
 let start = null;
 let end = null;
 

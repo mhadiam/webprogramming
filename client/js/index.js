@@ -25,6 +25,7 @@ if (localStorage.getItem("name") !== null) {
     "lastname"
   )} `;
   document.querySelector("header>nav>a:last-of-type").setAttribute("href", "/profile");
+  document.querySelector("#logout").style.display = "inline-block";
 }
 
 let start = null;
@@ -134,7 +135,7 @@ function draw_calendar(month) {
   calendar_days = [...document.querySelectorAll("header>form>main>div:nth-of-type(3)>div>div>span")].splice(7);
 
   const current_month_days = calendar.filter((e) => e.month === month);
-  const first_day_of_month = (14 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
+  const first_day_of_month = (35 + (current_month_days[0].week_day - current_month_days[0].month_day + 1)) % 7;
   for (let i = 0; i < first_day_of_month; i++) {
     calendar_days[i].className = "empty";
     calendar_days[i].textContent = "";
@@ -654,7 +655,7 @@ cards.forEach((figure) => {
   });
 });
 
-document.querySelector("form>button").addEventListener("click", (e) => {
+document.querySelector("#logout").addEventListener("click", (e) => {
   e.preventDefault();
 
   fetch(`http://127.0.0.1:3001/signout`, {
@@ -664,6 +665,7 @@ document.querySelector("form>button").addEventListener("click", (e) => {
     if (res.ok) {
       localStorage.removeItem("name");
       localStorage.removeItem("lastname");
+      document.cookie = "";
       location.href = "/";
     } else {
       if (res.status === 404) {

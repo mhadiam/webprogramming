@@ -21,6 +21,11 @@ func signout(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+	w.Header().Set("Access-Control-Allow-Credentials", "true")
+
 	db, err := sql.Open("postgres", "host=localhost port=5432 user=postgres password=M11111111h dbname=web sslmode=disable")
 	if err != nil {
 		http.Error(w, "Internal database error!", http.StatusInternalServerError)

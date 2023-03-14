@@ -33,6 +33,10 @@ header nav a:hover svg {
 header nav a svg {
   fill: var(--text);
 }
+header nav #logout {
+  display: none;
+  cursor: pointer;
+}
 header form {
   block-size: 3rem;
   flex-shrink: 0;

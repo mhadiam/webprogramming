@@ -45,6 +45,11 @@ header {
         fill: var(--text);
       }
     }
+
+    #logout {
+      display: none;
+      cursor: pointer;
+    }
   }
 
   form {
